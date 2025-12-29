@@ -47,25 +47,57 @@ export default function ProjectsPage() {
   return (
     <main className="min-h-screen bg-slate-50">
       <Navbar />
-      <div className="mx-auto max-w-5xl px-6 py-16">
-        <header className="space-y-3">
-          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500">
-            Projects
-          </p>
-          <h1 className="text-3xl font-bold tracking-tight text-slate-900">
-            Projects by engineering discipline
-          </h1>
-          <p className="max-w-3xl text-lg text-slate-700">
-            Selected work grouped by discipline: CMMS asset data, CAD, design, PLC automation, robotics, and numerical circuits.
-          </p>
-          <div>
-            <Link
-              href="/"
-              className="inline-flex items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm font-medium text-slate-800 shadow-sm hover:bg-slate-50"
-            >
-              ← Back to Home
-            </Link>
+
+      <section className="relative h-[340px] overflow-hidden sm:h-[380px]">
+        <video
+          className="absolute inset-0 h-full w-full object-cover"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          aria-hidden="true"
+        >
+          <source src="/projects/hero-project.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/50 via-slate-900/50 to-slate-900/60" />
+
+        <div className="relative z-10 mx-auto flex h-full max-w-6xl items-center px-4 sm:px-6">
+          <div className="max-w-3xl text-white">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
+              Projects
+            </p>
+            <h1 className="mt-2 text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl">
+              Engineering Projects &amp; Prototypes
+            </h1>
+            <p className="mt-3 text-base text-white/90 sm:text-lg">
+              Selected work grouped by discipline: CMMS asset data, CAD, design, PLC automation,
+              robotics, and numerical circuits.
+            </p>
+            <div className="mt-4">
+              <Link
+                href="/"
+                className="inline-flex items-center gap-2 rounded-lg border border-white/25 bg-white/10 px-3 py-2 text-sm font-medium text-white shadow-sm backdrop-blur hover:bg-white/20"
+              >
+                ← Back to Home
+              </Link>
+            </div>
           </div>
+        </div>
+      </section>
+
+      <div className="-mt-10 mx-auto max-w-6xl px-4 pb-16 sm:px-6">
+        <header className="space-y-2 rounded-3xl border border-slate-200 bg-white/85 p-6 shadow-sm backdrop-blur">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+            Outline
+          </p>
+          <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
+            Projects by engineering discipline
+          </h2>
+          <p className="max-w-3xl text-sm text-slate-700 sm:text-base">
+            Explore builds across CMMS, CAD, design, PLC automation, robotics, and numerical
+            circuits. Each section highlights a focused slice of the portfolio.
+          </p>
         </header>
 
         <div className="mt-10 space-y-8">
@@ -81,18 +113,14 @@ export default function ProjectsPage() {
                     <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
                       Section
                     </p>
-                    <h2 className="text-2xl font-semibold text-slate-900">
-                      {section.title}
-                    </h2>
+                    <h2 className="text-2xl font-semibold text-slate-900">{section.title}</h2>
                     <p className="mt-1 text-sm text-slate-700">{section.description}</p>
                   </div>
                 </div>
 
                 <div className="mt-5 grid gap-4 sm:grid-cols-2">
                   {items.length ? (
-                    items.map((project) => (
-                      <ProjectCard key={project.slug} project={project} />
-                    ))
+                    items.map((project) => <ProjectCard key={project.slug} project={project} />)
                   ) : (
                     <div className="rounded-xl border border-dashed border-slate-200 p-4 text-sm text-slate-600">
                       Projects coming soon.
