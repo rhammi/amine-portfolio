@@ -15,12 +15,14 @@ const links = [
 export default function Navbar() {
   const pathname = usePathname();
   const [showEmail, setShowEmail] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const emailRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
     function handleClick(event: MouseEvent) {
       if (emailRef.current && !emailRef.current.contains(event.target as Node)) {
         setShowEmail(false);
+        setMobileOpen(false);
       }
     }
     document.addEventListener("click", handleClick);
@@ -29,18 +31,25 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/60 backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
-        <div className="flex items-center gap-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
+        <div className="flex items-center gap-3">
+          <Link
+            href="/"
+            prefetch={false}
+            className="text-base font-semibold tracking-tight text-white sm:text-lg"
+          >
+            Amine Rhammi
+          </Link>
+        </div>
 
-          <nav className="hidden items-center gap-6 text-lg font-semibold text-white md:flex">
-            {links.map((l) => {
-              const active =
-                !l.download &&
-                (pathname === l.href ||
-                  (pathname?.startsWith(l.href) && l.href !== "/"));
-              return (
-                <Link
-                  key={l.href}
+        <nav className="hidden items-center gap-6 text-lg font-semibold text-white md:flex">
+          {links.map((l) => {
+            const active =
+              !l.download &&
+              (pathname === l.href || (pathname?.startsWith(l.href) && l.href !== "/"));
+            return (
+              <Link
+                key={l.href}
                 href={l.href}
                 prefetch={false}
                 className={
@@ -50,13 +59,12 @@ export default function Navbar() {
                 }
                 {...(l.download ? { download: true, target: "_blank" } : {})}
                 aria-current={active ? "page" : undefined}
-                >
-                  {l.label}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
+              >
+                {l.label}
+              </Link>
+            );
+          })}
+        </nav>
 
         <div className="flex items-center gap-2 sm:gap-3">
           <a
@@ -64,7 +72,7 @@ export default function Navbar() {
             download
             target="_blank"
             rel="noreferrer"
-            className="hidden rounded-full border border-white/30 bg-white/15 px-4 py-2 text-sm font-semibold text-white shadow-sm backdrop-blur hover:bg-white/25 sm:inline-flex"
+            className="hidden rounded-full border border-white/30 bg-white/15 px-4 py-2 text-sm font-semibold text-white shadow-sm backdrop-blur hover:bg-white/25 md:inline-flex"
           >
             Download Resume
           </a>
@@ -100,8 +108,61 @@ export default function Navbar() {
               </div>
             ) : null}
           </div>
+
+          <button
+            type="button"
+            onClick={(e) => {
+              e.stopPropagation();
+              setMobileOpen((prev) => !prev);
+              setShowEmail(false);
+            }}
+            className="inline-flex items-center justify-center rounded-lg border border-white/30 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white/10 md:hidden"
+            aria-label="Toggle menu"
+            aria-expanded={mobileOpen}
+          >
+            ☰
+          </button>
         </div>
       </div>
+
+      {mobileOpen ? (
+        <div className="border-t border-white/10 bg-slate-950/80 pb-4 text-white backdrop-blur md:hidden">
+          <nav className="flex flex-col gap-2 px-4 py-3 text-sm font-semibold">
+            {links.map((l) => (
+              <Link
+                key={l.href}
+                href={l.href}
+                prefetch={false}
+                onClick={() => setMobileOpen(false)}
+                className="rounded-lg px-3 py-2 hover:bg-white/10"
+              >
+                {l.label}
+              </Link>
+            ))}
+          </nav>
+          <div className="mt-1 flex flex-col gap-2 px-4">
+            <a
+              href="/resume.pdf"
+              download
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-lg border border-white/25 px-3 py-2 text-center text-sm font-semibold hover:bg-white/10"
+            >
+              Download Resume
+            </a>
+            <button
+              type="button"
+              onClick={() => {
+                navigator.clipboard?.writeText("aminecana@hotmail.com");
+                setMobileOpen(false);
+              }}
+              className="rounded-lg bg-white px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm hover:bg-white/90"
+            >
+              Copy email
+            </button>
+          </div>
+        </div>
+      ) : null}
     </header>
   );
 }

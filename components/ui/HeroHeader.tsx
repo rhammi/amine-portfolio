@@ -20,11 +20,11 @@ export default function HeroHeader() {
       {/* Centered text */}
       <div className="relative z-10 flex h-full items-center justify-center">
         <div className="flex flex-col items-center gap-3 px-6 text-center">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-white/85">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-white/85 sm:text-xs">
             Mechanical Engineering Portfolio
           </p>
 
-          <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-white sm:text-6xl">
+          <h1 className="mt-3 text-[clamp(2.2rem,9vw,4.8rem)] font-extrabold leading-[1.05] tracking-tight text-white">
             AMINE RHAMMI
           </h1>
 
