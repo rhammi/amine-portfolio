@@ -14,7 +14,7 @@ export default function Home() {
       <HeroHeader />
 
       {/* MAIN CONTENT */}
-      <div className="mx-auto max-w-6xl px-6 py-16">
+      <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <div className="rounded-3xl bg-white/75 p-10 backdrop-blur-md ring-1 ring-black/10 sm:p-12">
           {/* SUMMARY */}
           <section className="space-y-6">

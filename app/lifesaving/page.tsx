@@ -137,24 +137,7 @@ export default function LifesavingPage() {
                     ))}
                   </ul>
                 </div>
-                <div>
-                  <p className="text-sm font-semibold text-slate-600">Certifications</p>
-                  <ul className="mt-2 space-y-1 text-sm text-slate-800">
-                    {certifications.map((c) => (
-                      <li key={c}>• {c}</li>
-                    ))}
-                  </ul>
-                </div>
               </div>
-            </section>
-
-            <section className="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-              <h2 className="text-xl font-semibold text-slate-900">Certifications</h2>
-              <ul className="space-y-1 text-sm text-slate-800">
-                {certifications.map((c) => (
-                  <li key={c}>• {c}</li>
-                ))}
-              </ul>
             </section>
 
             <section className="rounded-3xl border bg-white p-6 shadow-sm">

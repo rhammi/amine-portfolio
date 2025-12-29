@@ -29,7 +29,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/60 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-4 sm:px-6">
         <div className="flex items-center gap-6">
 
           <nav className="hidden items-center gap-6 text-lg font-semibold text-white md:flex">
@@ -58,13 +58,13 @@ export default function Navbar() {
           </nav>
         </div>
 
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2 sm:gap-3">
           <a
             href="/resume.pdf"
             download
             target="_blank"
             rel="noreferrer"
-            className="rounded-full border border-white/30 bg-white/15 px-3 py-1.5 text-sm font-semibold text-white shadow-sm backdrop-blur hover:bg-white/25"
+            className="hidden rounded-full border border-white/30 bg-white/15 px-4 py-2 text-sm font-semibold text-white shadow-sm backdrop-blur hover:bg-white/25 sm:inline-flex"
           >
             Download Resume
           </a>
@@ -76,7 +76,7 @@ export default function Navbar() {
                 e.stopPropagation();
                 setShowEmail((prev) => !prev);
               }}
-              className="rounded-full bg-white px-3 py-1.5 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-100"
+              className="inline-flex rounded-full border border-white/30 bg-white px-3 py-2 text-sm font-semibold text-slate-900 shadow-sm hover:bg-slate-100 sm:px-4"
               aria-haspopup="true"
               aria-expanded={showEmail}
             >
