@@ -17,11 +17,16 @@ export default function Navbar() {
   const [showEmail, setShowEmail] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const emailRef = useRef<HTMLDivElement | null>(null);
+  const navRef = useRef<HTMLElement | null>(null);
 
   useEffect(() => {
     function handleClick(event: MouseEvent) {
-      if (emailRef.current && !emailRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      const clickInsideNav = navRef.current?.contains(target);
+      if (emailRef.current && !emailRef.current.contains(target)) {
         setShowEmail(false);
+      }
+      if (!clickInsideNav) {
         setMobileOpen(false);
       }
     }
@@ -30,7 +35,10 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/60 backdrop-blur">
+    <header
+      ref={navRef}
+      className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/60 backdrop-blur"
+    >
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6">
         <div className="flex items-center gap-3">
           <Link
