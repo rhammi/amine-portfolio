@@ -26,7 +26,7 @@ export const educationTimeline: EducationItem[] = [
     title: "B.Eng. Mechanical Engineering – Mechatronics (Program 7347)",
     institution: "Université du Québec à Trois-Rivières (UQTR)",
     location: "Trois-Rivières, QC",
-    period: "Expected Dec 2026",
+    period: "Expected April 2027",
   },
   {
     title: "B.Eng. Mechanical Engineering – Co-op Pathway (Program 6647)",
@@ -274,6 +274,5 @@ export const academicCategories: AcademicCategory[] = [
     ],
   },
 ];
-
 
 

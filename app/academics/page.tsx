@@ -7,6 +7,13 @@ import Navbar from "@/components/ui/Navbar";
 
 import { academicCategories, educationTimeline } from "@/data/academics";
 
+const featuredCourseCodes = new Set(["GIA1077", "STT1001", "ING1056", "GMC1037", "GMC1024", "ING1043"]);
+const featuredCourses = academicCategories.flatMap((category) =>
+  category.courses
+    .filter((course) => featuredCourseCodes.has(course.code))
+    .map((course) => ({ ...course, category: category.title })),
+);
+
 type FilterKey =
   | "all"
   | "reliability"
@@ -61,6 +68,22 @@ export default function AcademicsPage() {
       </section>
 
       <div className="mx-auto max-w-5xl px-6 py-12 space-y-10">
+        <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm" aria-labelledby="featured-modules-heading">
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">Recruiter view</p>
+          <h2 id="featured-modules-heading" className="mt-2 text-2xl font-semibold tracking-tight text-slate-900">Selected relevant modules</h2>
+          <p className="mt-2 max-w-3xl text-sm leading-6 text-slate-700">
+            A focused selection aligned with reliability, asset integrity, maintenance, and industrial engineering. The full coursework database remains available below.
+          </p>
+          <div className="mt-5 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            {featuredCourses.map((course) => (
+              <div key={course.code} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
+                <p className="text-xs font-semibold uppercase tracking-wide text-slate-500">{course.code} · {course.category}</p>
+                <h3 className="mt-2 text-base font-semibold text-slate-900">{course.title}</h3>
+              </div>
+            ))}
+          </div>
+        </section>
+
         <div className="flex flex-wrap items-center justify-between gap-4">
           <Link
             href="/"
