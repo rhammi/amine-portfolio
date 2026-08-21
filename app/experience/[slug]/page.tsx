@@ -104,14 +104,20 @@ export default async function ExperienceDetailPage({ params }: PageProps) {
         <div className="mt-8 rounded-3xl border bg-white p-8">
           <div className="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
             <div className="flex items-start gap-5">
-              <div className="shrink-0 rounded-2xl border bg-white p-3">
-                <Image
-                  src={item.logo}
-                  alt={`${item.company} logo`}
-                  width={120}
-                  height={120}
-                  className="h-14 w-24 object-contain"
-                />
+              <div className="flex h-20 w-28 shrink-0 items-center justify-center rounded-2xl border bg-white p-3">
+                {item.logo ? (
+                  <Image
+                    src={item.logo}
+                    alt={`${item.company} logo`}
+                    width={120}
+                    height={120}
+                    className="h-14 w-24 object-contain"
+                  />
+                ) : (
+                  <span className="text-center text-xs font-semibold text-slate-600">
+                    {item.company}
+                  </span>
+                )}
               </div>
 
               <div>
