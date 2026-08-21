@@ -5,6 +5,15 @@ import HeroHeader from "@/components/ui/HeroHeader";
 import CompanyLogoStrip from "@/components/ui/CompanyLogoStrip";
 import ExperienceTimeline from "@/components/ui/ExperienceTimeline";
 
+const engineeringImpact = [
+  { value: "81", label: "heavy-haul truck frame assemblies assessed" },
+  { value: "2,000+", label: "structural inspection records evaluated" },
+  { value: "33", label: "component populations analysed using Weibull MLE" },
+  { value: "199", label: "mine-fleet assets standardized" },
+  { value: "6.17M", label: "maintenance events in the reliability dataset" },
+  { value: "228", label: "fleet-system combinations classified by jackknife analysis" },
+];
+
 export default function Home() {
   return (
     <main className="min-h-screen">
@@ -13,22 +22,43 @@ export default function Home() {
       {/* TOP HERO */}
       <HeroHeader />
 
+      <section aria-labelledby="impact-heading" className="border-y border-slate-200/80 bg-white/90">
+        <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6">
+          <div className="flex flex-col gap-3 border-b border-slate-200 pb-6 sm:flex-row sm:items-end sm:justify-between">
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">Current Imperial Oil experience</p>
+              <h2 id="impact-heading" className="mt-2 text-2xl font-semibold tracking-tight text-slate-950">Engineering impact at fleet scale</h2>
+            </div>
+            <Link href="/experience/imperial-oil-exxonmobil-2026" className="text-sm font-semibold text-slate-700 underline underline-offset-4 hover:text-slate-950">
+              View experience details
+            </Link>
+          </div>
+          <dl className="grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2 lg:grid-cols-3">
+            {engineeringImpact.map((metric) => (
+              <div key={metric.value} className="bg-white p-6">
+                <dt className="text-sm leading-5 text-slate-600">{metric.label}</dt>
+                <dd className="order-first mb-2 text-3xl font-semibold tracking-tight text-slate-950">{metric.value}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
+
       {/* MAIN CONTENT */}
       <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6">
         <div className="rounded-3xl bg-white/75 p-10 backdrop-blur-md ring-1 ring-black/10 sm:p-12">
           {/* SUMMARY */}
-          <section className="space-y-6">
+          <section id="about" className="scroll-mt-24 space-y-6">
             <div className="space-y-3">
               <h2 className="text-3xl font-bold tracking-tight text-slate-900">
-                Summary
+                About
               </h2>
               <p className="text-lg text-slate-700">
-                Reliability &amp; maintenance-focused mechanical engineering student
-                (Mechatronics) with multi-term industrial experience across refining,
-                metallurgy, and pulp &amp; paper. I specialize in converting messy
-                maintenance/asset data into structured registers and dashboards that
-                improve planning quality, PM/CBM execution, and decision-making.
-                Safety-first, field-ready, bilingual (EN/FR).
+                Completing a Bachelor of Engineering in Mechanical Engineering with a
+                Mechatronics concentration at UQTR, expected April 2027. Six industrial
+                placements connect field engineering, mechanical design, maintenance systems,
+                and reliability analysis across asset-intensive environments. Fluent in English
+                and French.
               </p>
             </div>
 
@@ -40,13 +70,13 @@ export default function Home() {
                 rel="noreferrer"
                 className="rounded-lg border border-black/10 bg-white px-4 py-2 text-sm font-medium text-slate-900 hover:bg-black/5"
               >
-                Resume
+                Download CV
               </a>
               <Link
                 href="/academics"
                 className="rounded-lg border border-black/10 bg-white px-4 py-2 text-sm font-medium text-slate-900 hover:bg-black/5"
               >
-                Academics
+                Education
               </Link>
               <Link
                 href="/projects"
@@ -71,7 +101,7 @@ export default function Home() {
           <div className="my-14 border-t border-black/10" />
 
           {/* EXPERIENCE TIMELINE */}
-          <section className="space-y-6">
+          <section id="experience" className="scroll-mt-24 space-y-6">
             <h2 className="text-2xl font-semibold tracking-tight text-slate-900">
               Experience
             </h2>
@@ -105,17 +135,17 @@ export default function Home() {
             </div>
             <div className="grid gap-6 md:grid-cols-2">
               <div className="space-y-2">
-                <p className="text-sm font-semibold text-slate-600">Certifications</p>
+                <p className="text-sm font-semibold text-slate-600">Safety &amp; field practice</p>
                 <ul className="space-y-1 text-sm text-slate-800">
-                  <li>IOSH Managing Safely.</li>
-                  <li>Confined-space training.</li>
-                  <li>Lock-out / tag-out safety.</li>
+                  <li>WHMIS / SIMDUT and lock-out / tag-out.</li>
+                  <li>Process Hazard Analysis exposure.</li>
                 </ul>
               </div>
               <div className="space-y-2">
-                <p className="text-sm font-semibold text-slate-600">Licensure</p>
+                <p className="text-sm font-semibold text-slate-600">Target opportunities</p>
                 <p className="text-sm text-slate-800">
-                  Progressing toward professional licensure (EIT / P.Eng) and IMechE membership.
+                  UK graduate and early-career roles in reliability, asset integrity,
+                  maintenance, and project engineering from 2027.
                 </p>
               </div>
             </div>
@@ -141,6 +171,12 @@ export default function Home() {
               >
                 aminecana@hotmail.com
               </a>
+              <Link
+                className="underline underline-offset-4 hover:text-slate-700"
+                href="/lifesaving"
+              >
+                Leadership &amp; Beyond Engineering
+              </Link>
             </div>
           </footer>
         </div>

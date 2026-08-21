@@ -28,7 +28,9 @@ export default function ExperienceTimeline() {
                     className="h-24 w-24 object-contain"
                   />
                 ) : (
-                  <div className="h-24 w-24 rounded-lg bg-gray-100" />
+                  <div className="flex h-24 w-24 items-center justify-center rounded-lg bg-slate-100 px-2 text-center text-xs font-semibold text-slate-600">
+                    {item.company}
+                  </div>
                 )}
               </Link>
 

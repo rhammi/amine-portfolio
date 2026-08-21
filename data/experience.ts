@@ -3,7 +3,7 @@ export type ExperienceItem = {
 
   company: string;
   companyUrl: string;
-  logo: string;
+  logo?: string;
 
   location: string;
   dates: string;
@@ -24,6 +24,52 @@ export type ExperienceItem = {
 };
 
 export const experience: ExperienceItem[] = [
+  {
+    slug: "imperial-oil-exxonmobil-2026",
+    company: "Imperial Oil | ExxonMobil",
+    companyUrl: "https://www.imperialoil.ca/",
+    logo: "/logos/imperial-exxonmobil.png",
+    location: "Calgary, AB, Canada",
+    dates: "May 2026 – Present",
+    title: "Reliability & Maintenance Engineering Intern",
+    highlights: [
+      "Developed a model-specific structural inspection reference for CAT 789 haul trucks.",
+      "Assessed 2,000+ inspection records across 81 truck frames to support a seven-figure warranty recovery case.",
+      "Applied Weibull MLE to 33 component populations across a six-unit mining shovel fleet.",
+      "Standardized reliability analysis across 199 assets and 6.17 million maintenance events using ISO 14224-aligned taxonomy.",
+    ],
+    summary:
+      "Current mobile-equipment reliability placement combining field inspection, SAP maintenance evidence, life-data analysis, equipment strategy, and fleet-level prioritization.",
+    whatIDid: [
+      "Conducted an on-site structural survey of a newly introduced CAT 789 haul truck and defined standardized upper-chassis, lower-chassis, suspension, and dump-body inspection routes.",
+      "Collaborated with inspection teams on a structural assessment methodology for 81 heavy-haul truck frame assemblies, evaluating more than 2,000 records against manufacturer support criteria.",
+      "Analyzed loading exposure and structural-repair histories across an 83-truck fleet to support risk-based inspection prioritization and maintenance-strategy review.",
+      "Reconciled component-replacement histories across 150 trucks and six fleet models against planned maintenance intervals to improve forecasting and spare-parts positioning.",
+      "Performed two-parameter Weibull MLE on 33 component populations, validating failure and suspension data against SAP work orders and estimating B10/B50 life parameters.",
+      "Established an ISO 14224-aligned taxonomy across 199 mine-fleet assets and deployed jackknife classification across 228 fleet-system combinations.",
+    ],
+    outcomes: [
+      "Supported a seven-figure warranty cost-recovery case with structured inspection evidence.",
+      "Improved risk-based prioritization across large truck and mining-shovel fleets.",
+      "Enabled consistent cross-fleet reliability analysis through standardized equipment and failure coding.",
+      "Provided planners and supply chain with evidence-based component replacement forecasts.",
+    ],
+    topSkills: [
+      "Heavy mobile-equipment reliability and structural inspection",
+      "Weibull life-data analysis with failed and right-censored events",
+      "Fleet maintenance strategy and PM interval validation",
+      "Reliability taxonomy and failure-mode standardization",
+      "Risk-based inspection and spare-parts forecasting",
+    ],
+    tools: [
+      "SAP PM",
+      "Weibull MLE",
+      "ISO 14224",
+      "Jackknife diagrams",
+      "Excel / Power Query",
+      "Structural inspection",
+    ],
+  },
   {
     slug: "valero-energy-2025",
     company: "Valero Energy",

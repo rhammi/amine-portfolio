@@ -16,6 +16,26 @@ export type Project = {
   skills: string[];
 };
 
+export type ProjectGroup =
+  | "Professional Engineering Projects"
+  | "Academic & Mechatronics Projects";
+
+const academicProjectSlugs = new Set([
+  "stm32-vehicle-pwm",
+  "traffic-light-management",
+  "robotino-navigation",
+  "3d-printed-steam-engine",
+  "plc-bottle-line",
+  "festo-modular-line",
+  "robot-cell-simulation",
+]);
+
+export function getProjectGroup(project: Project): ProjectGroup {
+  return academicProjectSlugs.has(project.slug)
+    ? "Academic & Mechatronics Projects"
+    : "Professional Engineering Projects";
+}
+
 export const projects: Project[] = [
   {
     slug: "mov-register",

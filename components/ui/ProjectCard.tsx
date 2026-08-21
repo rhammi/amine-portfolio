@@ -10,9 +10,9 @@ export default function ProjectCard({ project }: { project: Project }) {
       <div className="flex items-start justify-between gap-4">
         <div>
           <p className="text-xs text-gray-500">{project.category}</p>
-          <h3 className="mt-1 text-lg font-semibold tracking-tight group-hover:underline underline-offset-4">
+          <h4 className="mt-1 text-lg font-semibold tracking-tight group-hover:underline underline-offset-4">
             {project.title}
-          </h3>
+          </h4>
         </div>
         <span className="text-sm text-gray-400">→</span>
       </div>

@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Amine Rhammi | Portfolio",
-  description: "Mechanical Engineering (Mechatronics) | Reliability & Maintenance",
+  description: "Mechanical Engineering Graduate Candidate | Asset Integrity, Reliability & Project Delivery",
 };
 
 export const viewport: Viewport = {
