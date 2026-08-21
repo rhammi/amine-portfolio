@@ -69,7 +69,7 @@ export default function HeroHeader() {
         </div>
 
         <Image
-          src="/logos/moi.png"
+          src="/images/amine-rhammi-portrait.jpg"
           alt="Portrait of Amine Rhammi"
           width={224}
           height={224}
