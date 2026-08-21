@@ -34,13 +34,13 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-3 pt-2">
               <a
-                href="/resume.pdf"
+                href="/Amine-Rhammi-CV-UK-2027.pdf"
                 download
                 target="_blank"
                 rel="noreferrer"
                 className="rounded-lg border border-black/10 bg-white px-4 py-2 text-sm font-medium text-slate-900 hover:bg-black/5"
               >
-                Resume
+                Download CV
               </a>
               <Link
                 href="/academics"

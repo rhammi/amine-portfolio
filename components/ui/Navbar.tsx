@@ -76,13 +76,13 @@ export default function Navbar() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <a
-            href="/resume.pdf"
+            href="/Amine-Rhammi-CV-UK-2027.pdf"
             download
             target="_blank"
             rel="noreferrer"
             className="hidden rounded-full border border-white/30 bg-white/15 px-4 py-2 text-sm font-semibold text-white shadow-sm backdrop-blur hover:bg-white/25 md:inline-flex"
           >
-            Download Resume
+            Download CV
           </a>
 
           <div className="relative" ref={emailRef}>
@@ -150,13 +150,13 @@ export default function Navbar() {
           </nav>
           <div className="mt-1 flex flex-col gap-2 px-4">
             <a
-              href="/resume.pdf"
+              href="/Amine-Rhammi-CV-UK-2027.pdf"
               download
               target="_blank"
               rel="noreferrer"
               className="rounded-lg border border-white/25 px-3 py-2 text-center text-sm font-semibold hover:bg-white/10"
             >
-              Download Resume
+              Download CV
             </a>
             <button
               type="button"
