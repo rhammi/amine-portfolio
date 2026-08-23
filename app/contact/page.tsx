@@ -24,10 +24,6 @@ export default function ContactPage() {
             <p className="text-sm font-bold text-slate-500">Current base</p>
             <p className="mt-2 text-lg font-semibold">Calgary, Alberta, Canada</p>
           </div>
-          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-            <p className="text-sm font-bold text-slate-500">Career direction</p>
-            <p className="mt-2 text-lg font-semibold">United Kingdom · 2027 graduate / early-career engineering</p>
-          </div>
         </section>
 
         <section className="mt-6 rounded-3xl bg-slate-950 p-7 text-white">
