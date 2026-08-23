@@ -1,169 +1,146 @@
-export type ProjectCategory =
-  | "Computerized Maintenance Management System"
-  | "CAD Modeling"
-  | "Design"
-  | "PLC Automation"
-  | "Robotics"
-  | "Numerical Circuits";
+export type ProjectCategory = "Reliability & Asset Performance" | "Mechanical & Field Engineering" | "Automation & Mechatronics";
 
 export type Project = {
   slug: string;
   title: string;
   category: ProjectCategory;
   summary: string;
-  image?: string;     // put images in /public and reference like "/projects/slug/hero.png"
-  youtubeId?: string; // optional (unlisted is fine)
+  challenge: string;
+  approach: string[];
+  outcome: string[];
   skills: string[];
+  confidentiality?: string;
 };
 
 export const projects: Project[] = [
   {
+    slug: "heavy-equipment-reliability",
+    title: "Heavy Equipment Reliability Analytics",
+    category: "Reliability & Asset Performance",
+    summary: "Structured SAP maintenance history and equipment-event data into repeatable reliability investigations for mobile mining assets.",
+    challenge: "Maintenance and equipment-history data can be fragmented across work orders, counters, functional locations, parts, symptoms, and free-text descriptions. The engineering challenge was to turn that history into evidence that could support repeat-failure, component-life, and maintenance-strategy questions.",
+    approach: [
+      "Joined and standardized SAP maintenance and equipment-history information into analysis-ready datasets.",
+      "Separated true failures from planned, administrative, and non-failure replacement events before statistical analysis.",
+      "Structured location, symptom, part, and failure-mode information so recurring patterns could be compared consistently.",
+      "Built reusable Excel and Databricks/PySpark workflows rather than one-off manual analyses.",
+    ],
+    outcome: [
+      "Created traceable reliability evidence for engineering review rather than relying on anecdotal failure history.",
+      "Reduced repetitive preparation effort for future equipment and component investigations.",
+      "Improved consistency of event classification and failure-mode analysis across reliability work.",
+    ],
+    skills: ["SAP PM", "Reliability engineering", "Databricks", "PySpark", "Excel", "Failure modes", "Heavy equipment"],
+    confidentiality: "Public version: internal fleet identifiers, financial figures, proprietary thresholds, and employer-sensitive records are intentionally omitted.",
+  },
+  {
+    slug: "weibull-life-data",
+    title: "Weibull & Life-Data Analysis",
+    category: "Reliability & Asset Performance",
+    summary: "Applied Weibull maximum-likelihood methods to failed and suspended component histories to characterize reliability and expected survival.",
+    challenge: "Replacement history alone does not equal failure history. A defensible life-data analysis requires correctly distinguishing failures from censored/suspended observations and verifying the underlying maintenance evidence before fitting a distribution.",
+    approach: [
+      "Reviewed replacement events against SAP history and maintenance context to classify observations as failed or suspended.",
+      "Captured failure-mode information where supporting evidence existed.",
+      "Applied Weibull maximum-likelihood estimation with right-censored observations.",
+      "Used fitted life-distribution parameters and survival metrics as engineering evidence rather than treating the statistical output as a standalone answer.",
+    ],
+    outcome: [
+      "Produced reproducible component-life analyses that account for censored observations.",
+      "Made assumptions and event classifications explicit for stakeholder review.",
+      "Created a reusable analytical pattern for future reliability studies.",
+    ],
+    skills: ["Weibull", "MLE", "Censored data", "JMP Pro", "Python", "SAP PM", "Reliability statistics"],
+    confidentiality: "Public version: equipment IDs, internal datasets, exact results, and employer-specific decision thresholds are not published.",
+  },
+  {
+    slug: "789f-inspection-guide",
+    title: "789F Structural Inspection Reference",
+    category: "Mechanical & Field Engineering",
+    summary: "Developed a field-informed structural inspection reference by adapting an existing haul-truck guide to a different chassis configuration.",
+    challenge: "An existing inspection reference could not simply be copied because the target truck differed in chassis geometry, suspension arrangement, component layout, and inspection-point applicability.",
+    approach: [
+      "Compared the two truck configurations component by component to identify genuine similarities and differences.",
+      "Used field photographs and a site visit to validate chassis features, component naming, and inspection access.",
+      "Corrected inspection-point numbering and component terminology where the source guide did not transfer accurately.",
+      "Preserved applicable inspection items while creating new references for configuration-specific areas.",
+    ],
+    outcome: [
+      "Produced a more accurate, standardized inspection reference for field use.",
+      "Reduced ambiguity created by transferring terminology and numbering from a different truck model.",
+      "Connected document development with direct field observation rather than desk-only assumptions.",
+    ],
+    skills: ["Structural inspection", "Heavy equipment", "Field engineering", "Technical documentation", "Component identification"],
+    confidentiality: "Public version: internal inspection documents, detailed photographs, unit identifiers, and proprietary maintenance instructions are excluded.",
+  },
+  {
     slug: "mov-register",
-    title: "MOV & Actuator Register",
-    category: "Computerized Maintenance Management System",
-    summary:
-      "Centralized actuator data inside CMMS-aligned register to support spares, torque envelopes, and reliability planning.",
-    image: "/projects/mov-register/hero.png",
-    youtubeId: "",
-    skills: ["CMMS", "SAP PM", "Asset Register", "Standardization", "Reliability"],
+    title: "MOV & Actuator Asset Standardization",
+    category: "Reliability & Asset Performance",
+    summary: "Reconciled actuator and valve information into a structured engineering register for maintenance planning and lifecycle decisions.",
+    challenge: "Technical information was distributed across OEM documentation and maintenance-system records, making it difficult to compare installed actuators, identify data gaps, and evaluate interchangeability.",
+    approach: [
+      "Reconciled OEM and CMMS/SAP information for tagged assets.",
+      "Standardized engineering attributes including torque, speed, voltage, mounting, and identifiers.",
+      "Flagged missing or inconsistent information requiring follow-up.",
+    ],
+    outcome: [
+      "Created a reusable source of technical asset information for maintenance and spares decisions.",
+      "Improved traceability between field assets, OEM data, and maintenance records.",
+    ],
+    skills: ["SAP PM", "Asset registers", "Valves & actuators", "Standardization", "Excel"],
   },
   {
-    slug: "interal-pm-rollout",
-    title: "INTERAL PM Rollout",
-    category: "Computerized Maintenance Management System",
-    summary:
-      "Deployed and cleaned PM routes in INTERAL; reorganized inventory/master data for reliable scheduling.",
-    image: "/projects/interal/hero.png",
-    youtubeId: "",
-    skills: ["INTERAL", "PM Scheduling", "Inventory Data", "Maintenance Planning"],
+    slug: "cbm-maintenance-optimization",
+    title: "CBM & Preventive Maintenance Optimization",
+    category: "Reliability & Asset Performance",
+    summary: "Improved lubrication/PM routes and consolidated condition-monitoring information to make maintenance execution and reliability review more consistent.",
+    challenge: "Duplicate PM activities, route gaps, and distributed condition-monitoring reports made execution and reliability review less efficient.",
+    approach: [
+      "Reviewed and standardized lubrication and PM routes in CMMS and Excel.",
+      "Removed duplicate activities and identified coverage gaps.",
+      "Consolidated vibration and condition information into a single review view.",
+      "Automated life and remaining-life calculations for a large component dataset.",
+    ],
+    outcome: [
+      "Improved clarity and maintainability of PM routes.",
+      "Made condition information easier to review and discuss with maintenance stakeholders.",
+      "Created repeatable replacement-planning calculations.",
+    ],
+    skills: ["Spartakus", "CBM", "Vibration", "Power Query", "PM optimization", "MTBF"],
   },
   {
-    slug: "excel-cbm-dashboards",
-    title: "Excel CBM Dashboards",
-    category: "Computerized Maintenance Management System",
-    summary:
-      "Built CBM dashboards and life/remaining-life metrics in Excel to accelerate reliability decisions.",
-    image: "/projects/excel-cbm/hero.png",
-    youtubeId: "",
-    skills: ["Excel", "Power Query", "CBM", "Reliability Analytics"],
+    slug: "mechanical-guarding-design",
+    title: "Mechanical Guarding & Maintainability Design",
+    category: "Mechanical & Field Engineering",
+    summary: "Designed safety-focused mechanical guarding and maintainability improvements for industrial equipment.",
+    challenge: "Industrial modifications needed to satisfy safety, access, fabrication, and maintainability constraints while remaining practical for field installation.",
+    approach: [
+      "Created guarding and fixture designs using SolidWorks and AutoCAD.",
+      "Considered structural loading, clearances, fastening, fabrication, and access requirements.",
+      "Worked with field conditions and maintenance needs rather than treating the design as an isolated CAD exercise.",
+    ],
+    outcome: [
+      "Delivered practical designs that improved safety and equipment access.",
+      "Strengthened the connection between CAD work and maintainability requirements.",
+    ],
+    skills: ["SolidWorks", "AutoCAD", "Mechanical design", "Safety", "Maintainability", "Fabrication"],
   },
   {
-    slug: "spartakus-lube-standardization",
-    title: "Spartakus Lubrication Standardization",
-    category: "Computerized Maintenance Management System",
-    summary:
-      "Rebuilt lubrication and PM routes in Spartakus to remove duplicates and close coverage gaps.",
-    image: "/projects/spartakus/hero.png",
-    youtubeId: "",
-    skills: ["Spartakus", "PM Routes", "Standardization", "Lubrication"],
-  },
-  {
-    slug: "pi-processbook-views",
-    title: "PI ProcessBook Equipment Views",
-    category: "Computerized Maintenance Management System",
-    summary:
-      "Developed PI ProcessBook views for equipment monitoring to improve alert-to-action time.",
-    image: "/projects/pi-processbook/hero.png",
-    youtubeId: "",
-    skills: ["PI ProcessBook", "Visualization", "Condition Monitoring"],
-  },
-  {
-    slug: "stm32-vehicle-pwm",
-    title: "STM32 Vehicle Control (PWM)",
-    category: "Numerical Circuits",
-    summary: "Dual PWM motor control with direction + duty-cycle speed control on STM32.",
-    image: "/projects/stm32-vehicle-pwm/hero.png",
-    youtubeId: "",
-    skills: ["STM32", "Timers/PWM", "Embedded", "Control"],
-  },
-  {
-    slug: "traffic-light-management",
-    title: "Traffic Light Management",
-    category: "Numerical Circuits",
-    summary:
-      "Designed and implemented a multi-state traffic light controller with timing, sequencing, and safe reset logic.",
-    image: "/projects/traffic-light/hero.png",
-    youtubeId: "",
-    skills: ["Digital Logic", "State Machines", "Timing", "Embedded Control"],
-  },
-  {
-    slug: "robotino-navigation",
-    title: "Robotino Navigation",
-    category: "Numerical Circuits",
-    summary:
-      "Programmed Robotino for autonomous navigation with sensor inputs, state control, and safety behaviors.",
-    image: "/projects/robotino/hero.png",
-    youtubeId: "",
-    skills: ["Robotino", "Embedded Control", "Sensors", "State Machines"],
-  },
-  {
-    slug: "guarding-cad-packs",
-    title: "Machine Guarding CAD Packs",
-    category: "CAD Modeling",
-    summary:
-      "Produced guarding/fixture CAD models and drawings for shop-floor installs aligned to safety standards.",
-    image: "/projects/guarding-cad-packs/hero.png",
-    youtubeId: "",
-    skills: ["SolidWorks", "AutoCAD", "Safety", "Fabrication", "GD&T"],
-  },
-  {
-    slug: "machine-safety-guards",
-    title: "Machine Safety Guards",
-    category: "CAD Modeling",
-    summary:
-      "Designed and detailed safety guarding for industrial equipment with compliant clearances and fastening schemes.",
-    image: "/projects/machine-safety-guards/hero.png",
-    youtubeId: "",
-    skills: ["SolidWorks", "Guarding", "GD&T", "Fabrication"],
-  },
-  {
-    slug: "3d-printed-steam-engine",
-    title: "3D Printed Steam Engine",
-    category: "CAD Modeling",
-    summary:
-      "Modeled and assembled a functional 3D-printable steam engine demonstrator with printed linkages and piston.",
-    image: "/projects/3d-steam-engine/hero.png",
-    youtubeId: "",
-    skills: ["CAD", "3D Printing", "Assembly", "Mechanisms"],
-  },
-  {
-    slug: "maintainability-redesign",
-    title: "Maintainability-first Layout Redesign",
-    category: "Design",
-    summary:
-      "Adjusted piping/access layouts and added filtration concepts to reduce service time and improve ergonomics.",
-    image: "/projects/maintainability/hero.png",
-    youtubeId: "",
-    skills: ["Maintainability", "Piping Layout", "Ergonomics", "Concept Design"],
-  },
-  {
-    slug: "plc-bottle-line",
-    title: "PLC Bottle Line Automation",
-    category: "PLC Automation",
-    summary:
-      "Programmed PLC logic for conveyor gating, sensor interlocks, and fault handling on a bottle line demo.",
-    image: "/projects/plc-bottle-line/hero.png",
-    youtubeId: "",
-    skills: ["PLC", "Ladder Logic", "I/O", "Safety Interlocks"],
-  },
-  {
-    slug: "festo-modular-line",
-    title: "Festo Modular Automated Production Line",
-    category: "PLC Automation",
-    summary:
-      "Developed PLC logic and sequencing for a modular Festo production line with stations, conveyors, and interlocks.",
-    image: "/projects/festo-line/hero.png",
-    youtubeId: "",
-    skills: ["PLC", "Modular Automation", "Sequencing", "Interlocks"],
-  },
-  {
-    slug: "robot-cell-simulation",
-    title: "Robot Cell Simulation",
-    category: "Robotics",
-    summary:
-      "Modeled a dual-robot cell with coordinated motion and safety zones for flexible manufacturing.",
-    image: "/projects/robot-cell/hero.png",
-    youtubeId: "",
-    skills: ["Robotics", "Kinematics", "Safety", "Simulation"],
+    slug: "automation-mechatronics",
+    title: "Automation & Mechatronics Projects",
+    category: "Automation & Mechatronics",
+    summary: "University and laboratory projects covering PLC sequencing, embedded control, robotics, instrumentation, and dynamic systems.",
+    challenge: "Translate mechanical-system requirements into reliable sensing, sequencing, control, and actuation logic across multiple mechatronic platforms.",
+    approach: [
+      "Programmed PLC sequences with sensors, interlocks, fault handling, and conveyor logic.",
+      "Implemented STM32-based PWM motor control and embedded-system behavior.",
+      "Worked with robotics, state machines, instrumentation, and control-system modeling.",
+    ],
+    outcome: [
+      "Built a practical controls foundation that complements mechanical reliability work.",
+      "Developed troubleshooting literacy across sensors, actuators, embedded systems, and automation logic.",
+    ],
+    skills: ["PLC", "STM32", "Embedded systems", "Robotics", "Instrumentation", "Controls"],
   },
 ];
