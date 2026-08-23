@@ -3,30 +3,33 @@ import { companiesWorkedWith } from "@/data/companies";
 
 export default function CompanyLogoStrip() {
   return (
-    <section className="py-10">
-      <h2 className="text-center text-sm font-semibold tracking-[0.2em] text-slate-600">
-        EXPERIENCE
-      </h2>
-
-      <div className="mt-5 flex items-center gap-6 overflow-x-auto pb-3 [-webkit-overflow-scrolling:touch]">
-        {companiesWorkedWith.map((c) => (
+    <section className="py-8">
+      <p className="text-center text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+        Industrial experience
+      </p>
+      <div className="mt-5 flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+        {companiesWorkedWith.map((company) => (
           <a
-            key={c.slug}
-            href={c.url}
+            key={company.slug}
+            href={company.url}
             target="_blank"
             rel="noopener noreferrer"
-            className="group shrink-0 rounded-xl bg-white/70 px-4 py-3 ring-1 ring-slate-200/70 transition hover:-translate-y-0.5 hover:shadow-sm"
-            title={`Open ${c.name} website`}
-            aria-label={`Open ${c.name} website`}
+            className="group flex min-h-16 min-w-36 items-center justify-center rounded-2xl border border-slate-200 bg-white/85 px-5 py-3 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md"
+            title={`Open ${company.name} website`}
           >
-            <Image
-              src={c.logo}
-              alt={`${c.name} logo`}
-              width={140}
-              height={70}
-              loading="lazy"
-              className="h-10 w-auto object-contain transition group-hover:scale-[1.03] sm:h-12"
-            />
+            {company.logo ? (
+              <Image
+                src={company.logo}
+                alt={`${company.name} logo`}
+                width={140}
+                height={64}
+                className="h-9 w-auto object-contain sm:h-10"
+              />
+            ) : (
+              <span className="max-w-40 text-center text-sm font-bold leading-tight text-slate-800">
+                {company.name}
+              </span>
+            )}
           </a>
         ))}
       </div>
