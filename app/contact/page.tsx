@@ -2,50 +2,39 @@ import Navbar from "@/components/ui/Navbar";
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-white text-slate-900">
+    <main className="min-h-screen bg-slate-50 text-slate-900">
       <Navbar />
+      <div className="mx-auto max-w-4xl px-6 py-16">
+        <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">Contact</p>
+        <h1 className="mt-3 text-5xl font-extrabold tracking-tight">Engineering opportunities & professional contact</h1>
+        <p className="mt-5 max-w-3xl text-lg leading-relaxed text-slate-700">
+          I am interested in 2027 graduate and early-career roles in mechanical engineering, reliability, maintenance engineering, asset performance, and industrial equipment reliability, particularly in the United Kingdom.
+        </p>
 
-      <div className="mx-auto max-w-3xl px-6 py-16 space-y-6">
-        <h1 className="text-5xl font-extrabold tracking-tight">Contact</h1>
-
-        <section className="space-y-4 rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
-          <div className="space-y-3 text-base text-slate-900">
-            <div>
-              <p className="text-sm font-semibold text-slate-600">Email</p>
-              <a
-                href="mailto:aminecana@hotmail.com"
-                className="text-lg font-semibold text-slate-900 underline underline-offset-4 hover:text-slate-700"
-              >
-                aminecana@hotmail.com
-              </a>
-            </div>
-
-            <div>
-              <p className="text-sm font-semibold text-slate-600">LinkedIn</p>
-              <a
-                href="https://www.linkedin.com/in/amine-rhammi-392376b9/"
-                target="_blank"
-                rel="noreferrer"
-                className="text-lg font-semibold text-slate-900 underline underline-offset-4 hover:text-slate-700"
-              >
-                linkedin.com/in/amine-rhammi-392376b9
-              </a>
-            </div>
-
-            <div>
-              <p className="text-sm font-semibold text-slate-600">Location</p>
-              <p className="text-lg font-semibold text-slate-900">Montreal, QC · Open to relocation</p>
-            </div>
+        <section className="mt-10 grid gap-5 md:grid-cols-2">
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-sm font-bold text-slate-500">Email</p>
+            <a href="mailto:aminecana@hotmail.com" className="mt-2 block text-lg font-semibold underline underline-offset-4">aminecana@hotmail.com</a>
           </div>
-
-          <div className="mt-2 space-y-2 rounded-2xl border border-slate-100 bg-slate-50/70 p-4">
-            <p className="text-sm font-semibold text-slate-600">What I’m looking for</p>
-            <ul className="space-y-1 text-sm text-slate-800">
-              <li>Internship or new graduate mechanical engineering roles.</li>
-              <li>Industries: reliability, heavy industry, refining, mining, pulp &amp; paper.</li>
-              <li>Start: Summer/Fall 2025 (flexible); open to North America.</li>
-            </ul>
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-sm font-bold text-slate-500">LinkedIn</p>
+            <a href="https://www.linkedin.com/in/amine-rhammi-392376b9/" target="_blank" rel="noreferrer" className="mt-2 block text-lg font-semibold underline underline-offset-4">Amine Rhammi on LinkedIn</a>
           </div>
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-sm font-bold text-slate-500">Current base</p>
+            <p className="mt-2 text-lg font-semibold">Calgary, Alberta, Canada</p>
+          </div>
+          <div className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm">
+            <p className="text-sm font-bold text-slate-500">Career direction</p>
+            <p className="mt-2 text-lg font-semibold">United Kingdom · 2027 graduate / early-career engineering</p>
+          </div>
+        </section>
+
+        <section className="mt-6 rounded-3xl bg-slate-950 p-7 text-white">
+          <p className="text-sm font-bold text-white/60">Target areas</p>
+          <p className="mt-3 leading-relaxed text-white/85">
+            Reliability engineering · Mechanical maintenance · Asset integrity · Rotating and mobile equipment · Maintenance strategy · SAP/CMMS · Condition monitoring · Reliability analytics
+          </p>
         </section>
       </div>
     </main>
