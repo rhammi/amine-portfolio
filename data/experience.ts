@@ -1,29 +1,70 @@
 export type ExperienceItem = {
   slug: string;
-
   company: string;
   companyUrl: string;
-  logo: string;
-
+  logo?: string;
   location: string;
   dates: string;
   title: string;
-
   highlights: string[];
-
   summary: string;
   whatIDid: string[];
   tools: string[];
   topSkills: string[];
   outcomes: string[];
-
   heroImage?: string;
-
-  // ✅ NEW: multiple photos per company/page
   gallery?: { src: string; alt: string; caption?: string }[];
 };
 
 export const experience: ExperienceItem[] = [
+  {
+    slug: "imperial-oil-reliability-2026",
+    company: "Imperial Oil / ExxonMobil",
+    companyUrl: "https://www.imperialoil.ca/",
+    location: "Calgary / Kearl Oil Sands, Alberta, Canada",
+    dates: "May 2026 – Present",
+    title: "Reliability & Maintenance Engineering Associate",
+    highlights: [
+      "Analyze SAP equipment history and maintenance work orders for heavy mobile mining assets to support reliability investigations and maintenance decisions.",
+      "Apply life-data and Weibull methods with failed and suspended events to characterize component reliability and expected survival.",
+      "Build structured reliability datasets, dashboards, and repeatable analytical workflows using Excel, Python/PySpark, Databricks, JMP Pro, and Power BI.",
+      "Support field-focused investigations involving haul trucks, dozers, pumps, structural inspection references, failure modes, and maintenance strategy.",
+    ],
+    summary:
+      "Reliability engineering role in a large mining environment, combining field context, SAP maintenance history, life-data analysis, and scalable data workflows to turn complex equipment information into decision-ready reliability evidence.",
+    whatIDid: [
+      "Review SAP PM work orders, equipment history, counters, functional locations, parts, symptoms, and failure records to distinguish true failures from non-failure replacements and maintenance events.",
+      "Run Weibull maximum-likelihood and survival analyses, including censored data, to estimate characteristic life and expected survival metrics for component populations.",
+      "Standardize location, symptom, part, and failure-mode data so recurring reliability questions can be analyzed consistently across fleets and time periods.",
+      "Develop Databricks/PySpark and Excel-based tools that reduce repetitive data preparation and make reliability analyses reproducible.",
+      "Create and improve field inspection references by comparing equipment configurations, validating component naming, and incorporating site observations and photographs.",
+      "Translate analytical findings into concise engineering outputs for review by maintenance, reliability, and equipment stakeholders.",
+    ],
+    tools: [
+      "SAP PM",
+      "Databricks / PySpark",
+      "Python",
+      "Excel / Power Query",
+      "Power BI",
+      "JMP Pro",
+      "Weibull / life-data analysis",
+      "RCFA / FMECA",
+      "Heavy mobile equipment",
+    ],
+    topSkills: [
+      "Reliability engineering using maintenance and equipment-history data",
+      "Weibull MLE and censored life-data analysis",
+      "Failure-event classification and failure-mode structuring",
+      "Heavy-equipment field and structural reliability support",
+      "Scalable analytics and repeatable engineering workflows",
+    ],
+    outcomes: [
+      "Converted fragmented maintenance and equipment data into structured evidence that supports reliability reviews and maintenance decisions.",
+      "Reduced manual analysis effort by building reusable data-processing and reliability-analysis workflows.",
+      "Improved consistency of failure classification and inspection documentation across engineering investigations.",
+      "Supported cross-functional review with traceable methods rather than anecdotal conclusions.",
+    ],
+  },
   {
     slug: "valero-energy-2025",
     company: "Valero Energy",
@@ -33,48 +74,38 @@ export const experience: ExperienceItem[] = [
     dates: "May – Aug 2025",
     title: "Mechanical Engineering Intern (Reliability)",
     highlights: [
-      "Standardized pump families + MOV/actuator assemblies by reconciling OEM vs SAP PM BOMs.",
-      "Built a terminal-wide MOV/actuator register (torque, RPM, voltage, ISO 5211 mount) and closed tag gaps.",
-      "Supported MOC deliverables (P&IDs, commissioning checklists/SWIs, document traceability).",
-      "Designed a gravity-drain + low-ΔP magnetic pre-filtration system for hazardous-vapor service.",
+      "Standardized pump families and MOV/actuator assemblies by reconciling OEM documentation with CMMS/SAP asset information.",
+      "Built an actuator register covering key technical attributes used for maintenance planning, spares, and interchangeability decisions.",
+      "Supported MOC and engineering documentation including P&IDs, commissioning checks, and traceability updates.",
+      "Developed maintainability-focused design concepts for process equipment and filtration applications.",
     ],
     summary:
-      "Reliability internship focused on lifecycle control through standardized asset data, improved traceability, and practical design improvements that strengthen safety and maintainability.",
+      "Reliability internship focused on asset standardization, rotating/process equipment, maintenance data quality, and practical design improvements in a terminal environment.",
     whatIDid: [
-      "Reconciled OEM documentation against SAP PM BOMs to standardize pump families and actuator assemblies; identified obsolescence and interchangeability to support lifecycle cost control.",
-      "Created and maintained a terminal-wide MOV/actuator register (torque, RPM, voltage, ISO 5211 mount) and resolved tag gaps to improve reliability planning and spares decisions.",
-      "Contributed to Management of Change (MOC): updated P&IDs, wrote commissioning checklists/SWIs, and ensured revision/traceability for auditable start-ups.",
-      "Designed a gravity-drain and low-ΔP magnetic pre-filtration system for hazardous-vapor service to improve maintainability and extend service intervals.",
+      "Reconciled OEM and CMMS/SAP information for pumps and actuators to identify standardization, obsolescence, and interchangeability opportunities.",
+      "Created and maintained a structured MOV/actuator register covering torque, speed, voltage, mounting, and asset identifiers.",
+      "Supported Management of Change documentation and engineering traceability through drawing and commissioning-document updates.",
+      "Developed practical design concepts intended to improve maintainability and serviceability in process-equipment applications.",
     ],
-    tools: [
-      "SAP PM (BOM reconciliation)",
-      "Excel (advanced analysis/registers)",
-      "P&ID / drafting + revision control",
-      "MOC documentation",
-      "Reliability planning (spares/risk-based thinking)",
-    ],
+    tools: ["SAP PM / CMMS", "Excel", "P&IDs", "MOC documentation", "Pump and actuator data", "Mechanical design"],
     topSkills: [
-      "BOM reconciliation between SAP PM and OEM sources",
-      "Actuator/MOV sizing and standardization (torque/RPM/ISO 5211)",
-      "Reliability register building and gap closure",
-      "MOC documentation with P&ID updates and commissioning checklists",
-      "Maintainability-focused filtration concepting",
+      "Asset-data reconciliation and BOM validation",
+      "Pump and actuator standardization",
+      "Maintenance planning and lifecycle thinking",
+      "Engineering documentation and MOC support",
     ],
     outcomes: [
-      "Improved asset data quality and standardization to support better spares/lifecycle decisions.",
-      "Increased traceability of MOV/actuator assets, enabling more accurate reliability planning.",
-      "Delivered MOC documentation that supports safe, auditable commissioning.",
-      "Proposed a maintainability-focused filtration concept that reduces servicing burden and improves safety.",
+      "Improved visibility and consistency of asset information used for maintenance and spares decisions.",
+      "Created reusable engineering registers that reduced reliance on scattered vendor documentation.",
+      "Strengthened documentation traceability for maintenance and engineering changes.",
     ],
-    // ✅ simple folder name (no numbers)
     heroImage: "/experience/valero/hero.jpg",
     gallery: [
       { src: "/experience/valero/terminal.jpg", alt: "Valero terminal environment", caption: "Terminal environment" },
-      { src: "/experience/valero/piping.jpg", alt: "Piping and infrastructure", caption: "Piping / infrastructure" },
-      { src: "/experience/valero/equipment.jpg", alt: "Equipment area", caption: "Equipment / assets" },
+      { src: "/experience/valero/piping.jpg", alt: "Piping and infrastructure", caption: "Piping and infrastructure" },
+      { src: "/experience/valero/equipment.jpg", alt: "Equipment area", caption: "Equipment and assets" },
     ],
   },
-
   {
     slug: "kruger-wayagamack-2024",
     company: "Kruger Inc.",
@@ -84,48 +115,40 @@ export const experience: ExperienceItem[] = [
     dates: "May – Aug 2024",
     title: "Mechanical Engineering Intern (Reliability)",
     highlights: [
-      "Rebuilt and standardized lubrication + PM routes (Spartakus CMMS + Excel); removed duplicates and filled gaps.",
-      "Consolidated vibration health reports into a single CBM dashboard; led weekly reliability meetings.",
-      "Automated a 9,000-row roller-life database (life + remaining-life metrics, MTBF tracking).",
-      "Built an Excel belt-tension/selection tool to standardize belt sizing and reduce premature failures.",
+      "Rebuilt lubrication and preventive-maintenance routes in Spartakus CMMS, removing duplicates and closing coverage gaps.",
+      "Consolidated condition-monitoring information into a single dashboard to improve reliability review and follow-up.",
+      "Automated a large roller-life dataset to support remaining-life and MTBF analysis.",
+      "Built engineering tools for belt selection and tensioning and supported RCA/FMECA-related maintenance improvements.",
     ],
     summary:
-      "Reliability internship in pulp & paper focused on PM execution quality, condition monitoring visibility, and practical tools that improve decision-making speed and consistency.",
+      "Reliability internship in pulp and paper focused on PM execution quality, condition monitoring, life-data visibility, and practical maintenance-engineering tools.",
     whatIDid: [
-      "Standardized lubrication/PM routes in CMMS + Excel, eliminating duplicates and closing coverage gaps to improve compliance and reduce lubrication-related downtime.",
-      "Merged multi-source vibration/health reporting into a single CBM dashboard and facilitated weekly reliability discussions with operations and maintenance.",
-      "Cleaned and automated a large roller-life dataset (~9k rows), generating life and remaining-life metrics to support replacement planning and trend analysis (MTBF).",
-      "Created an Excel belt tension + selection tool using formulas to standardize belt sizing and prevent early failures.",
-      "Supported FMECA and RCAs, translating findings into updated PM tasks and standard work documentation.",
+      "Standardized lubrication and PM routes in Spartakus CMMS and Excel, eliminating duplicate tasks and addressing coverage gaps.",
+      "Combined multi-source vibration and health reporting into a concise CBM dashboard used in reliability discussions.",
+      "Cleaned and automated a large roller-life dataset to calculate life, remaining-life, and trend information for replacement planning.",
+      "Created an Excel-based belt selection and tensioning tool using engineering formulas.",
+      "Supported failure analysis and translated findings into maintenance-task and documentation improvements.",
     ],
-    tools: [
-      "Spartakus CMMS",
-      "Excel (Power Query / automation / formulas)",
-      "CBM dashboards (vibration reporting)",
-      "MTBF / life-data analysis",
-      "FMECA / RCA support",
-    ],
+    tools: ["Spartakus CMMS", "Excel / Power Query", "CBM / vibration", "MTBF / life analysis", "RCA / FMECA"],
     topSkills: [
-      "Lubrication/PM route rebuilds in CMMS (Spartakus)",
-      "CBM/vibration dashboarding and weekly reliability rhythms",
-      "Power Query and Excel automation for life-data analysis",
-      "Belt tension/selection standardization via engineering formulas",
-      "FMECA/RCA translation into PM updates",
+      "Lubrication and PM optimization",
+      "Condition-monitoring dashboarding",
+      "Maintenance data automation",
+      "Life and replacement planning",
+      "Reliability problem solving",
     ],
     outcomes: [
-      "Higher PM/lubrication route quality and clearer execution paths.",
-      "Faster reliability decision-making with a single CBM dashboard + weekly review rhythm.",
-      "Data-driven replacement planning from automated remaining-life metrics and trends.",
-      "Reduced belt-related failures through standardized selection/tension guidance.",
+      "Improved PM-route quality and maintainability of the maintenance program.",
+      "Made condition information easier to review and act on through consolidated reporting.",
+      "Created repeatable tools for replacement planning and belt-maintenance decisions.",
     ],
     heroImage: "/experience/kruger/hero.jpg",
     gallery: [
       { src: "/experience/kruger/mill.jpg", alt: "Kruger mill environment", caption: "Mill environment" },
       { src: "/experience/kruger/maintenance.jpg", alt: "Maintenance work area", caption: "Maintenance area" },
-      { src: "/experience/kruger/cbm.jpg", alt: "Condition monitoring", caption: "CBM / vibration focus" },
+      { src: "/experience/kruger/cbm.jpg", alt: "Condition monitoring", caption: "Condition-monitoring focus" },
     ],
   },
-
   {
     slug: "rio-tinto-tdp-2023",
     company: "Rio Tinto",
@@ -135,47 +158,33 @@ export const experience: ExperienceItem[] = [
     dates: "May – Aug 2023",
     title: "Mechanical Engineering Intern (Reliability)",
     highlights: [
-      "Designed fixtures/guarding in SolidWorks/AutoCAD validated by structural and safety calculations.",
-      "Modified layouts (piping elbows/access points) to improve maintainability and ergonomics.",
-      "Built daily/weekly dashboards for TDP critical assets to shorten alert-to-action time.",
-      "Assisted RCFAs for fire incidents and updated mitigation measures; improved traceability in AssetWise/SAP PM.",
+      "Designed mechanical fixtures and guarding in SolidWorks/AutoCAD with safety and structural considerations.",
+      "Supported maintainability improvements to equipment layouts and access points.",
+      "Built asset-health reporting for critical production equipment and supported reliability investigations.",
+      "Improved maintenance and parts traceability through AssetWise and SAP-related documentation work.",
     ],
     summary:
-      "Reliability internship bridging design and field execution: safety-focused mechanical design, maintainability improvements, and asset visibility tools that support proactive maintenance.",
+      "Reliability internship combining field-oriented mechanical design, maintainability, asset-health visibility, and maintenance-documentation improvement.",
     whatIDid: [
-      "Designed engineered fixtures and machine guarding using SolidWorks/AutoCAD and supported validation with structural/safety calculations.",
-      "Implemented layout modifications (piping elbows/access points) to improve maintainability and operator ergonomics.",
-      "Built daily/weekly dashboards for critical assets in Titanium Dioxide Production (TDP) to enable proactive maintenance and quicker response.",
-      "Supported RCFAs for fire incidents: documented causes, helped implement mitigation actions, and improved maintenance documentation quality.",
-      "Developed/updated maintenance plans for conveyors; updated/coded parts in AssetWise and SAP PM for better traceability.",
+      "Designed fixtures and machine guarding and supported engineering validation for safe field installation.",
+      "Proposed layout and access changes intended to improve maintainability and ergonomics.",
+      "Built recurring dashboards for critical assets to support quicker review of equipment condition.",
+      "Supported RCFA work and follow-through on corrective actions and maintenance documentation.",
+      "Updated maintenance plans and equipment/parts information in asset-management systems.",
     ],
-    tools: [
-      "SolidWorks / AutoCAD",
-      "Excel dashboards",
-      "RCFA support",
-      "AssetWise + SAP PM (traceability)",
-      "Maintainability / ergonomics improvements",
-    ],
-    topSkills: [
-      "SolidWorks/AutoCAD guarding and fixture design with validation checks",
-      "Layout and ergonomics improvements for maintainability",
-      "Reliability dashboards for critical TDP assets",
-      "RCFA documentation and mitigation follow-through",
-      "Maintenance plan and parts traceability in AssetWise/SAP PM",
-    ],
+    tools: ["SolidWorks", "AutoCAD", "Excel", "RCFA", "AssetWise", "SAP PM"],
+    topSkills: ["Mechanical design", "Maintainability", "Reliability reporting", "RCFA support", "Maintenance traceability"],
     outcomes: [
-      "Safer and more maintainable equipment via engineered guarding and layout improvements.",
-      "Improved visibility of critical asset status and faster alert-to-action cycles.",
-      "Better maintenance traceability through structured plans and parts coding in CMMS tools.",
+      "Improved equipment safety and maintainability through practical mechanical-design changes.",
+      "Improved visibility of critical-asset condition through structured reporting.",
+      "Strengthened maintenance traceability through better documentation and asset information.",
     ],
-    // you can pick any rio-tinto photo as hero for this role
     heroImage: "/experience/rio-tinto/plant.jpg",
     gallery: [
       { src: "/experience/rio-tinto/plant.jpg", alt: "Rio Tinto plant environment", caption: "Plant environment" },
-      { src: "/experience/rio-tinto/safety.jpg", alt: "Safety / field environment", caption: "Safety / field focus" },
+      { src: "/experience/rio-tinto/safety.jpg", alt: "Safety and field environment", caption: "Safety and field focus" },
     ],
   },
-
   {
     slug: "soucy-maintenance-2022",
     company: "Soucy International",
@@ -183,87 +192,30 @@ export const experience: ExperienceItem[] = [
     logo: "/logos/soucy.png",
     location: "Drummondville, QC, Canada",
     dates: "May – Aug 2022",
-    title: "Mechanical Engineering Intern (Maintenance Supervisor)",
+    title: "Maintenance Supervisor Intern",
     highlights: [
-      "Supported preventive maintenance deployment in INTERAL CMMS; cleaned inventory/master data.",
-      "Designed/fabricated/installed custom machine guarding aligned with plant safety standards.",
-      "Produced weekly maintenance schedules and coordinated with production to reduce unplanned downtime.",
+      "Supported preventive-maintenance deployment in INTERAL CMMS and improved inventory/master-data organization.",
+      "Designed, fabricated, and installed machine guarding for shop-floor safety improvements.",
+      "Built weekly maintenance schedules and coordinated execution with production teams.",
     ],
     summary:
-      "Maintenance-focused internship centered on PM deployment, data cleanliness for scheduling accuracy, and hands-on safety guarding improvements.",
+      "Maintenance-focused internship centered on preventive maintenance, maintenance scheduling, CMMS data quality, and hands-on safety improvements.",
     whatIDid: [
-      "Supported rollout of preventive maintenance within INTERAL CMMS by reorganizing inventory and cleansing master data to improve scheduling accuracy.",
-      "Designed, fabricated, and installed custom machine guarding compliant with plant safety expectations.",
-      "Built weekly maintenance schedules and coordinated execution with production to improve completion rates and reduce unplanned downtime.",
+      "Supported PM implementation in INTERAL CMMS and reorganized maintenance inventory/master data.",
+      "Designed and installed custom machine guarding for industrial equipment.",
+      "Prepared weekly maintenance schedules and coordinated work with production requirements.",
     ],
-    tools: [
-      "INTERAL CMMS",
-      "Excel (tracking/schedules)",
-      "Shop-floor coordination",
-      "Design-for-safety guarding",
-    ],
-    topSkills: [
-      "Preventive maintenance deployment within INTERAL CMMS",
-      "Inventory/master-data cleansing for scheduling accuracy",
-      "Custom machine guarding design, fabrication, and installation",
-      "Maintenance scheduling and production coordination",
-    ],
+    tools: ["INTERAL CMMS", "Excel", "Maintenance scheduling", "Mechanical guarding", "Shop-floor coordination"],
+    topSkills: ["Preventive maintenance", "CMMS data quality", "Safety-focused design", "Maintenance planning"],
     outcomes: [
-      "Improved PM scheduling quality through cleaner data and better inventory organization.",
-      "Reduced safety risk through compliant guarding installations.",
-      "Stronger maintenance-production coordination for fewer interruptions and higher task completion.",
+      "Improved maintenance scheduling inputs through cleaner data and better inventory organization.",
+      "Reduced safety exposure through engineered guarding improvements.",
+      "Strengthened coordination between maintenance and production.",
     ],
     heroImage: "/experience/soucy/hero.jpg",
     gallery: [
-      { src: "/experience/soucy/shopfloor.jpg", alt: "Soucy shopfloor", caption: "Shopfloor environment" },
-      { src: "/experience/soucy/guarding.jpg", alt: "Machine guarding", caption: "Safety guarding work" },
-    ],
-  },
-
-  {
-    slug: "rio-tinto-ugs-2021-2022",
-    company: "Rio Tinto",
-    companyUrl: "https://www.riotinto.com/",
-    logo: "/logos/rio-tinto.png",
-    location: "Sorel-Tracy Metallurgical Complex, QC, Canada",
-    dates: "May 2021 – 2022",
-    title: "Mechanical Engineering Intern (Process Optimization)",
-    highlights: [
-      "Developed equipment monitoring interfaces for UGS plant to support reliability initiatives.",
-      "Supported RCA and maintenance-plan development with the reliability engineer.",
-      "Contributed to compliance reviews and investment opportunity identification.",
-      "Participated in FMECA for the Acid Regeneration Plant (ARP) to improve risk visibility.",
-    ],
-    summary:
-      "Process optimization internship supporting reliability through monitoring interfaces, structured analysis (RCA/FMECA), and compliance-driven improvement planning.",
-    whatIDid: [
-      "Developed equipment monitoring interfaces for the Upgraded Titanium Slag (UGS) plant to support predictive and reliability initiatives.",
-      "Assisted with RCA and maintenance-plan development alongside the reliability engineer.",
-      "Completed compliance reviews and identified improvement/investment opportunities based on field findings.",
-      "Contributed to FMECA activities for the Acid Regeneration Plant (ARP) to improve visibility of failure risk and operational exposure.",
-    ],
-    tools: [
-      "Monitoring/visualization interfaces",
-      "RCA support",
-      "FMECA participation",
-      "Compliance reviews / audit thinking",
-    ],
-    topSkills: [
-      "Equipment monitoring/visualization interface design",
-      "RCA and FMECA participation for reliability improvements",
-      "Compliance review and audit-minded gap identification",
-      "Maintenance plan development and coding for traceability",
-    ],
-    outcomes: [
-      "Improved monitoring visibility supporting proactive reliability work.",
-      "Stronger maintenance planning inputs via RCA support and structured analysis.",
-      "Better risk transparency for key assets/processes through FMECA contribution.",
-    ],
-    heroImage: "/experience/rio-tinto/hero-ugs.jpg",
-    gallery: [
-      { src: "/experience/rio-tinto/hero-ugs.jpg", alt: "UGS environment", caption: "UGS environment" },
-      { src: "/experience/rio-tinto/plant.jpg", alt: "Plant equipment", caption: "Plant equipment" },
-      { src: "/experience/rio-tinto/safety.jpg", alt: "Safety environment", caption: "Safety / field environment" },
+      { src: "/experience/soucy/shopfloor.jpg", alt: "Soucy shop floor", caption: "Shop-floor environment" },
+      { src: "/experience/soucy/guarding.jpg", alt: "Machine guarding", caption: "Safety-guarding work" },
     ],
   },
 ];
