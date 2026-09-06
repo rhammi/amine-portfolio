@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs><linearGradient id="bg3" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#172554"/></linearGradient><marker id="a3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3 0 6Z" fill="#fb923c"/></marker></defs>
+  <rect width="1200" height="675" fill="url(#bg3)"/>
+  <text x="70" y="82" fill="#fb923c" font-family="Arial" font-size="21" font-weight="700" letter-spacing="3">DISTRIBUTED AUTOMATION</text>
+  <text x="70" y="128" fill="#fff" font-family="Arial" font-size="40" font-weight="800">Five stations · one coordinated sequence</text>
+  <g font-family="Arial" text-anchor="middle">
+    <g transform="translate(150 335)"><rect x="-88" y="-72" width="176" height="144" rx="22" fill="#fff"/><text y="-5" fill="#0f172a" font-size="21" font-weight="800">Distribute</text><text y="28" fill="#64748b" font-size="15">station 01</text></g>
+    <g transform="translate(375 335)"><rect x="-88" y="-72" width="176" height="144" rx="22" fill="#fff"/><text y="-5" fill="#0f172a" font-size="21" font-weight="800">Test</text><text y="28" fill="#64748b" font-size="15">station 02</text></g>
+    <g transform="translate(600 335)"><rect x="-88" y="-72" width="176" height="144" rx="22" fill="#fff"/><text y="-5" fill="#0f172a" font-size="19" font-weight="800">Pick &amp; place</text><text y="28" fill="#64748b" font-size="15">station 03</text></g>
+    <g transform="translate(825 335)"><rect x="-88" y="-72" width="176" height="144" rx="22" fill="#fff"/><text y="-5" fill="#0f172a" font-size="21" font-weight="800">Press</text><text y="28" fill="#64748b" font-size="15">station 04</text></g>
+    <g transform="translate(1050 335)"><rect x="-88" y="-72" width="176" height="144" rx="22" fill="#fb923c"/><text y="-5" fill="#fff" font-size="21" font-weight="800">Sort</text><text y="28" fill="#fff" font-size="15">station 05</text></g>
+  </g>
+  <g fill="none" stroke="#fb923c" stroke-width="5" marker-end="url(#a3)"><path d="M240 335H280"/><path d="M465 335H505"/><path d="M690 335H730"/><path d="M915 335H955"/></g>
+  <path d="M150 465V535H1050V465" fill="none" stroke="#60a5fa" stroke-width="4" stroke-dasharray="10 9"/>
+  <rect x="475" y="500" width="250" height="92" rx="22" fill="#1e3a8a" stroke="#60a5fa" stroke-width="3"/><text x="600" y="539" text-anchor="middle" fill="#fff" font-family="Arial" font-size="20" font-weight="800">PLC handshakes</text><text x="600" y="569" text-anchor="middle" fill="#bfdbfe" font-family="Arial" font-size="15">interlocks · reset · faults</text>
+  <text x="70" y="210" fill="#cbd5e1" font-family="Arial" font-size="17">Material flow</text>
+</svg>
