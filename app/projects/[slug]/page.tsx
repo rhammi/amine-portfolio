@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
 
 import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
@@ -23,7 +23,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function ProjectDetailPage({ params }: PageProps) {
   const { slug } = await params;
   const project = projects.find((item) => item.slug === slug);
+  if (!project && slug === "stm32-interrupt-control") redirect("/projects/tracked-vehicle-dual-mcu-control");
   if (!project) notFound();
+
+  const galleryOffset = project.gallery?.length ? 1 : 0;
+  const methodNumber = formatSectionNumber(4 + galleryOffset);
+  const judgementNumber = formatSectionNumber(5 + galleryOffset);
+  const verificationNumber = formatSectionNumber(6 + galleryOffset);
+  const videoNumber = formatSectionNumber(7 + galleryOffset);
+  const outcomeNumber = formatSectionNumber(7 + galleryOffset + (project.video ? 1 : 0));
 
   return (
     <main id="main-content" className="min-h-screen">
@@ -82,22 +90,54 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <BulletList items={project.constraints} />
           </CaseSection>
 
-          <CaseSection number="04" title="Method">
+          {project.gallery?.length ? (
+            <CaseSection id="engineering-evidence" number="04" title="Engineering evidence, decoded">
+              <p className="max-w-3xl text-base leading-relaxed text-slate-600">Original project artefacts and physical evidence are paired with an English engineering explanation of what each visual establishes.</p>
+              <div className="mt-8 space-y-8">
+                {project.gallery.map((item, index) => (
+                  <figure key={item.src} className="grid overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm lg:grid-cols-[1.08fr_.92fr] lg:items-stretch">
+                    <div className={`${index % 2 ? "lg:order-2" : ""} border-b border-slate-200 bg-slate-50 p-3 lg:border-b-0 ${index % 2 ? "lg:border-l" : "lg:border-r"}`}>
+                      <div className={`relative overflow-hidden rounded-2xl bg-white ${galleryAspectClasses[item.aspect ?? "wide"]}`}>
+                        <a href={item.src} target="_blank" rel="noreferrer" className="absolute inset-0" aria-label={`Open full-size visual: ${item.title}`}>
+                          <Image
+                            src={item.src}
+                            alt={item.alt}
+                            fill
+                            sizes="(max-width: 1024px) 100vw, 52vw"
+                            className={item.fit === "cover" ? "object-cover transition duration-500 hover:scale-[1.02]" : "object-contain p-3 transition duration-500 hover:scale-[1.02] sm:p-5"}
+                          />
+                        </a>
+                      </div>
+                    </div>
+                    <figcaption className={`${index % 2 ? "lg:order-1" : ""} flex flex-col justify-center p-6 sm:p-8`}>
+                      <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-orange-700">{item.eyebrow}</p>
+                      <h3 className="mt-3 text-2xl font-black tracking-tight text-slate-950">{item.title}</h3>
+                      <p className="mt-4 text-sm leading-relaxed text-slate-700">{item.description}</p>
+                      {item.details?.length ? <BulletList items={item.details} compact /> : null}
+                      <p className="mt-6 border-t border-slate-200 pt-4 text-xs leading-relaxed text-slate-500">{item.caption} <a href={item.src} target="_blank" rel="noreferrer" className="ml-1 font-extrabold text-slate-700 underline decoration-slate-300 underline-offset-4 hover:text-orange-700">Open full size ↗</a></p>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </CaseSection>
+          ) : null}
+
+          <CaseSection number={methodNumber} title="Method">
             <ol className="mt-6 grid gap-4 sm:grid-cols-2">
               {project.method.map((item, index) => <li key={item} className="rounded-2xl border border-slate-200 bg-white p-5"><span className="font-mono text-xs font-bold text-orange-700">{String(index + 1).padStart(2, "0")}</span><p className="mt-3 text-sm leading-relaxed text-slate-700">{item}</p></li>)}
             </ol>
           </CaseSection>
 
-          <CaseSection number="05" title="Engineering judgement">
+          <CaseSection number={judgementNumber} title="Engineering judgement">
             <blockquote className="border-l-4 border-orange-500 bg-orange-50 px-5 py-4 text-lg font-semibold leading-relaxed text-slate-900">{project.judgement}</blockquote>
           </CaseSection>
 
-          <CaseSection number="06" title="Verification">
+          <CaseSection number={verificationNumber} title="Verification">
             <BulletList items={project.verification} />
           </CaseSection>
 
           {project.video ? (
-            <CaseSection id="demonstration" number="07" title="Physical demonstration">
+            <CaseSection id="demonstration" number={videoNumber} title="Physical demonstration">
               <div className="grid gap-7 overflow-hidden rounded-3xl bg-slate-950 p-4 text-white sm:p-6 lg:grid-cols-[minmax(17rem,.72fr)_1fr] lg:items-center">
                 <div className="overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl">
                   <video
@@ -110,12 +150,12 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     className="mx-auto aspect-[9/16] max-h-[42rem] w-full object-contain"
                   >
                     <source src={project.video.src} type="video/mp4" />
-                    <a href={project.video.src}>Open the Robotino demonstration video</a>
+                    <a href={project.video.src}>Open the project demonstration video</a>
                   </video>
                 </div>
                 <div className="p-2 sm:p-4">
                   <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-orange-400">Laboratory evidence · {project.video.duration}</p>
-                  <h3 className="mt-3 text-2xl font-black tracking-tight">From control logic to physical motion</h3>
+                  <h3 className="mt-3 text-2xl font-black tracking-tight">{project.video.title}</h3>
                   <p id="project-video-description" className="mt-4 leading-relaxed text-slate-300">{project.video.description}</p>
                   <p className="mt-6 text-sm font-extrabold text-white">What this footage shows</p>
                   <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-300">
@@ -127,7 +167,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             </CaseSection>
           ) : null}
 
-          <CaseSection number={project.video ? "08" : "07"} title="Outcome & limits">
+          <CaseSection number={outcomeNumber} title="Outcome & limits">
             <BulletList items={project.outcome} />
             <p className="mt-6 rounded-2xl bg-slate-100 p-5 text-sm leading-relaxed text-slate-700"><strong className="text-slate-950">Learning:</strong> {project.learning}</p>
           </CaseSection>
@@ -154,6 +194,16 @@ function CaseSection({ number, title, children, id }: { number: string; title: s
   return <section id={id} className="scroll-mt-28 border-t border-slate-300 pt-6"><p className="font-mono text-xs font-bold text-orange-700">{number}</p><h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950">{title}</h2><div className="mt-5 leading-relaxed text-slate-700">{children}</div></section>;
 }
 
-function BulletList({ items }: { items: string[] }) {
-  return <ul className="mt-5 space-y-3">{items.map((item) => <li key={item} className="flex gap-3"><span aria-hidden="true" className="mt-2 h-2 w-2 shrink-0 rounded-full bg-orange-700" /><span>{item}</span></li>)}</ul>;
+const galleryAspectClasses = {
+  wide: "aspect-[16/10]",
+  standard: "aspect-[4/3]",
+  portrait: "aspect-[4/5]",
+};
+
+function formatSectionNumber(value: number) {
+  return String(value).padStart(2, "0");
+}
+
+function BulletList({ items, compact = false }: { items: string[]; compact?: boolean }) {
+  return <ul className={`${compact ? "mt-5 space-y-2 text-sm" : "mt-5 space-y-3"}`}>{items.map((item) => <li key={item} className="flex gap-3"><span aria-hidden="true" className={`${compact ? "mt-2 h-1.5 w-1.5" : "mt-2 h-2 w-2"} shrink-0 rounded-full bg-orange-700`} /><span>{item}</span></li>)}</ul>;
 }

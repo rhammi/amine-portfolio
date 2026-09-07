@@ -1,0 +1,90 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">English reconstruction of the Robotino energy-based REM</title>
+  <desc id="desc">A shared 12 volt source branches into two identical armature, DC motor, inertia, reducer and wheel-ground energy paths.</desc>
+  <rect width="1600" height="900" rx="36" fill="#f8fafc"/>
+  <rect x="40" y="40" width="1520" height="820" rx="28" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="90" y="112" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#c2410c" letter-spacing="3">ENERGY-BASED MODEL</text>
+  <text x="90" y="168" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#0f172a">From electrical supply to two wheel loads</text>
+
+  <g font-family="Arial, sans-serif">
+    <circle cx="140" cy="450" r="56" fill="#ecfdf5" stroke="#0f766e" stroke-width="4"/>
+    <text x="140" y="443" text-anchor="middle" font-size="22" font-weight="800" fill="#065f46">12 V</text>
+    <text x="140" y="471" text-anchor="middle" font-size="17" fill="#065f46">source</text>
+    <path d="M196 450 H258" stroke="#0f172a" stroke-width="7" marker-end="url(#arrow)"/>
+
+    <rect x="270" y="365" width="180" height="170" rx="24" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+    <text x="360" y="410" text-anchor="middle" font-size="21" font-weight="800" fill="#9a3412">Supply</text>
+    <text x="360" y="438" text-anchor="middle" font-size="21" font-weight="800" fill="#9a3412">dynamics</text>
+    <text x="360" y="480" text-anchor="middle" font-size="17" fill="#7c2d12">Rₛ = 0.1 Ω</text>
+    <text x="360" y="506" text-anchor="middle" font-size="17" fill="#7c2d12">C = 10 F</text>
+    <path d="M450 450 H510" stroke="#0f172a" stroke-width="7" marker-end="url(#arrow)"/>
+
+    <rect x="520" y="380" width="150" height="140" rx="24" fill="#0f172a"/>
+    <text x="595" y="433" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">Power</text>
+    <text x="595" y="461" text-anchor="middle" font-size="20" font-weight="800" fill="#fff">split</text>
+    <text x="595" y="493" text-anchor="middle" font-size="16" fill="#cbd5e1">two branches</text>
+
+    <path d="M670 427 C710 427 710 295 755 295" fill="none" stroke="#0f172a" stroke-width="7" marker-end="url(#arrow)"/>
+    <path d="M670 473 C710 473 710 605 755 605" fill="none" stroke="#0f172a" stroke-width="7" marker-end="url(#arrow)"/>
+
+    <g transform="translate(770 210)">
+      <rect width="190" height="170" rx="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+      <text x="95" y="42" text-anchor="middle" font-size="17" font-weight="800" fill="#1e3a8a">ARMATURE 1</text>
+      <text x="95" y="84" text-anchor="middle" font-size="22" font-weight="800" fill="#0f172a">R + L·s</text>
+      <text x="95" y="121" text-anchor="middle" font-size="17" fill="#475569">R = 1 Ω</text>
+      <text x="95" y="147" text-anchor="middle" font-size="17" fill="#475569">L = 10 H</text>
+    </g>
+    <path d="M960 295 H1015" stroke="#2563eb" stroke-width="7" marker-end="url(#arrowBlue)"/>
+    <circle cx="1080" cy="295" r="64" fill="#fff7ed" stroke="#f97316" stroke-width="4"/>
+    <text x="1080" y="287" text-anchor="middle" font-size="20" font-weight="800" fill="#9a3412">DC motor</text>
+    <text x="1080" y="316" text-anchor="middle" font-size="17" fill="#7c2d12">Kφ = 1</text>
+    <path d="M1144 295 H1198" stroke="#c2410c" stroke-width="7" marker-end="url(#arrowOrange)"/>
+    <rect x="1210" y="218" width="160" height="154" rx="24" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
+    <text x="1290" y="259" text-anchor="middle" font-size="17" font-weight="800" fill="#334155">ROTATION</text>
+    <text x="1290" y="298" text-anchor="middle" font-size="20" font-weight="800" fill="#0f172a">J·s + b</text>
+    <text x="1290" y="330" text-anchor="middle" font-size="16" fill="#475569">J = 0.02</text>
+    <text x="1290" y="353" text-anchor="middle" font-size="16" fill="#475569">b = 0.45</text>
+    <path d="M1370 295 H1416" stroke="#0f172a" stroke-width="7" marker-end="url(#arrow)"/>
+    <rect x="1428" y="238" width="95" height="114" rx="20" fill="#0f172a"/>
+    <text x="1475" y="282" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">100:1</text>
+    <text x="1475" y="309" text-anchor="middle" font-size="15" fill="#cbd5e1">reducer</text>
+    <text x="1475" y="335" text-anchor="middle" font-size="14" fill="#fdba74">wheel 1</text>
+
+    <g transform="translate(770 520)">
+      <rect width="190" height="170" rx="24" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+      <text x="95" y="42" text-anchor="middle" font-size="17" font-weight="800" fill="#1e3a8a">ARMATURE 2</text>
+      <text x="95" y="84" text-anchor="middle" font-size="22" font-weight="800" fill="#0f172a">R + L·s</text>
+      <text x="95" y="121" text-anchor="middle" font-size="17" fill="#475569">R = 1 Ω</text>
+      <text x="95" y="147" text-anchor="middle" font-size="17" fill="#475569">L = 10 H</text>
+    </g>
+    <path d="M960 605 H1015" stroke="#2563eb" stroke-width="7" marker-end="url(#arrowBlue)"/>
+    <circle cx="1080" cy="605" r="64" fill="#fff7ed" stroke="#f97316" stroke-width="4"/>
+    <text x="1080" y="597" text-anchor="middle" font-size="20" font-weight="800" fill="#9a3412">DC motor</text>
+    <text x="1080" y="626" text-anchor="middle" font-size="17" fill="#7c2d12">Kφ = 1</text>
+    <path d="M1144 605 H1198" stroke="#c2410c" stroke-width="7" marker-end="url(#arrowOrange)"/>
+    <rect x="1210" y="528" width="160" height="154" rx="24" fill="#f1f5f9" stroke="#94a3b8" stroke-width="3"/>
+    <text x="1290" y="569" text-anchor="middle" font-size="17" font-weight="800" fill="#334155">ROTATION</text>
+    <text x="1290" y="608" text-anchor="middle" font-size="20" font-weight="800" fill="#0f172a">J·s + b</text>
+    <text x="1290" y="640" text-anchor="middle" font-size="16" fill="#475569">J = 0.02</text>
+    <text x="1290" y="663" text-anchor="middle" font-size="16" fill="#475569">b = 0.45</text>
+    <path d="M1370 605 H1416" stroke="#0f172a" stroke-width="7" marker-end="url(#arrow)"/>
+    <rect x="1428" y="548" width="95" height="114" rx="20" fill="#0f172a"/>
+    <text x="1475" y="592" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">100:1</text>
+    <text x="1475" y="619" text-anchor="middle" font-size="15" fill="#cbd5e1">reducer</text>
+    <text x="1475" y="645" text-anchor="middle" font-size="14" fill="#fdba74">wheel 2</text>
+
+    <path d="M1080 231 C1080 185 865 185 865 210" fill="none" stroke="#0f766e" stroke-width="5" stroke-dasharray="12 9" marker-end="url(#arrowGreen)"/>
+    <path d="M1080 669 C1080 715 865 715 865 690" fill="none" stroke="#0f766e" stroke-width="5" stroke-dasharray="12 9" marker-end="url(#arrowGreen)"/>
+    <text x="970" y="196" text-anchor="middle" font-size="16" font-weight="700" fill="#065f46">back-EMF feedback</text>
+    <text x="970" y="732" text-anchor="middle" font-size="16" font-weight="700" fill="#065f46">back-EMF feedback</text>
+
+    <rect x="90" y="782" width="1433" height="52" rx="16" fill="#fff7ed" stroke="#fed7aa" stroke-width="2"/>
+    <text x="806" y="815" text-anchor="middle" font-size="19" font-weight="700" fill="#7c2d12">Wheel radius 0.18 m · wheel spacing 0.35 m · identical independent drive branches assumed</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0f172a"/></marker>
+    <marker id="arrowBlue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563eb"/></marker>
+    <marker id="arrowOrange" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#c2410c"/></marker>
+    <marker id="arrowGreen" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0f766e"/></marker>
+  </defs>
+</svg>
