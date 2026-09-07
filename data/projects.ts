@@ -23,6 +23,16 @@ export type Project = {
   visual: string;
   visualAlt: string;
   visualCaption: string;
+  highlights?: { label: string; value: string }[];
+  video?: {
+    src: string;
+    poster: string;
+    title: string;
+    duration: string;
+    description: string;
+    caption: string;
+    watchFor: string[];
+  };
   featured?: boolean;
 };
 
@@ -250,6 +260,71 @@ export const projects: Project[] = [
     featured: true,
   },
   {
+    slug: "robotino-autonomous-route-following",
+    title: "Robotino Autonomous Route Following",
+    organisation: "UQTR · GMC1051",
+    period: "2024",
+    status: "Completed",
+    source: "Academic",
+    disciplines: ["mechatronics"],
+    summary: "A four-person mechatronics project paired a MATLAB/Simulink mobile-robot model with physical Robotino route-following control, sensor-state logic and recovery behaviour.",
+    context: "The course joined two related workstreams: model a differential-drive mobile robot in MATLAB/Simulink, then program a Festo Robotino in Robotino View 2 to follow an aluminium-tape route containing straight sections, curves and a bounded discontinuity.",
+    ownership: "The team presentation attributes to me shared work in theoretical electromechanical modelling and test planning; MATLAB/Simulink model creation, debugging and scenario execution; movement-sequence programming and visualisation; real-system testing and validation; and report drafting. This was a four-person project, so no sole-authorship claim is made.",
+    challenge: "Two inductive sensors had to give the robot enough information to track the tape, recover it after losing alignment, search across a gap and stop safely if the remaining route could not be found.",
+    constraints: [
+      "The physical route combined straight and curved segments and could include a gap no longer than the robot diameter.",
+      "No human intervention was permitted during motion, apart from the manual stop at the final endpoint required by the brief.",
+      "The controller also had to estimate marked-route length and support a short completion time.",
+      "The supplied presentation is a project-progress record, so it does not support a final accuracy, speed, grade or competition-style performance claim.",
+    ],
+    method: [
+      "Derived the mobile-robot kinematic relationships linking wheel speeds to linear velocity, angular velocity, position and heading.",
+      "Represented the battery, drive, DC-motor, gearbox and wheel dynamics through an energy-based model and MATLAB/Simulink blocks.",
+      "Observed inductive-sensor values of about 2–4 over the metallic tape and 9 away from it, then applied a threshold of 5 to create stable binary states.",
+      "Mapped the two-sensor combinations into forward motion, line reacquisition and pivot-search behaviours using a truth-table structure.",
+      "Added right-priority, left-priority and discontinuity-search routines, including a stop condition intended to avoid crossing previously travelled tape.",
+      "Implemented distance-estimation logic from accumulated forward-motion time and commanded speed, then exercised the logic in simulation and on the physical Robotino.",
+    ],
+    judgement: "Thresholding made the controller deterministic without pretending the raw sensor signal was perfectly clean. Because two binary sensors cannot uniquely describe every off-line position, the recovery strategy also needed remembered direction, search priority and an explicit termination condition.",
+    verification: [
+      "Executed MATLAB/Simulink scenarios and reviewed the simulated trajectory and response graph.",
+      "Checked both inductive sensors over and away from the metallic tape before fixing the binary threshold.",
+      "Tested movement sequences and recovery behaviour on the real Robotino laboratory platform.",
+      "Recorded the physical demonstration shown on this page; the footage is evidence of operation, not a calibrated accuracy or cycle-time benchmark.",
+    ],
+    outcome: [
+      "Produced a demonstrated Robotino prototype that moved along the taped laboratory route under sensor-based control.",
+      "Documented the modelling chain, sensor truth table, directional search logic, discontinuity handling and distance-estimation approach.",
+      "Identified remaining improvement areas: more precise tape detection, stronger tight-turn recovery, improved angular search and a speed ramp instead of constant forward speed.",
+    ],
+    learning: "The project made the model-to-machine gap visible: a sound kinematic model still needs sensor calibration, state memory, recovery logic and physical testing before autonomous behaviour becomes dependable.",
+    skills: ["MATLAB", "Simulink", "Robotino View 2", "Mobile-robot kinematics", "Inductive sensors", "Truth-table control", "REM", "State sequencing"],
+    confidentiality: "This is four-person academic work and the ownership statement follows the supplied task breakdown. The public video is laboratory evidence; original course files and teammates’ personal information are not published. No final precision, time or grade is claimed.",
+    visual: "/projects/robotino/robotino-route-hero.jpg",
+    visualAlt: "Festo Robotino following a metallic-tape route during a university laboratory test",
+    visualCaption: "Frame from the team’s physical Robotino laboratory demonstration.",
+    highlights: [
+      { label: "Model", value: "Differential-drive electromechanical simulation" },
+      { label: "Physical platform", value: "Festo Robotino" },
+      { label: "Sensing", value: "Two inductive sensors · threshold 5" },
+      { label: "Recovery", value: "Directional and discontinuity search" },
+    ],
+    video: {
+      src: "/projects/robotino/robotino-demonstration.mp4",
+      poster: "/projects/robotino/robotino-video-poster.jpg",
+      title: "Robotino route-following laboratory demonstration",
+      duration: "01:19",
+      description: "The supplied MOV records the physical Robotino progressing along the metallic-tape route and reorienting as the sensor state changes.",
+      caption: "Supplied MOV footage, converted to a compact H.264 MP4 for reliable browser playback. Audio was removed because it does not add technical evidence.",
+      watchFor: [
+        "The robot’s response as the taped route changes direction.",
+        "Repeated sensor-guided corrections rather than a pre-recorded geometric path.",
+        "A physical proof-of-operation test, not a calibrated accuracy or completion-time benchmark.",
+      ],
+    },
+    featured: true,
+  },
+  {
     slug: "stm32-interrupt-control",
     title: "STM32 Interrupt-Driven Control",
     organisation: "UQTR · GEI1049",
@@ -320,7 +395,6 @@ export const projects: Project[] = [
     visual: "/visuals/wire-feed-capstone.svg",
     visualAlt: "Simplified wire-feed system showing reel, displacement sensor, drive, PLC and process interface",
     visualCaption: "Simplified in-progress system illustration — not a sponsor drawing.",
-    featured: true,
   },
 ];
 

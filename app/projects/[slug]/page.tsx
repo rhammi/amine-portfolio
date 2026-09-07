@@ -43,7 +43,15 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             </div>
           </div>
           <figure className="overflow-hidden rounded-3xl border border-white/15 bg-white">
-            <div className="relative aspect-[16/9]"><Image src={project.visual} alt={project.visualAlt} fill priority sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" /></div>
+            <div className="group relative aspect-[16/9]">
+              <Image src={project.visual} alt={project.visualAlt} fill priority sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
+              {project.video ? (
+                <a href="#demonstration" className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-4 rounded-2xl border border-white/30 bg-slate-950/85 px-4 py-3 text-left text-sm font-extrabold text-white shadow-xl backdrop-blur transition hover:bg-slate-950">
+                  <span>Watch the physical demonstration</span>
+                  <span className="font-mono text-xs text-orange-300">{project.video.duration} ↓</span>
+                </a>
+              ) : null}
+            </div>
             <figcaption className="border-t border-slate-200 px-4 py-3 text-xs leading-relaxed text-slate-600">{project.visualCaption}</figcaption>
           </figure>
         </div>
@@ -54,6 +62,16 @@ export default async function ProjectDetailPage({ params }: PageProps) {
           <CaseSection number="01" title="Context & problem">
             <p>{project.context}</p>
             <p className="mt-4 font-semibold text-slate-900">{project.challenge}</p>
+            {project.highlights ? (
+              <dl className="mt-7 grid gap-px overflow-hidden rounded-2xl border border-slate-200 bg-slate-200 sm:grid-cols-2">
+                {project.highlights.map((item) => (
+                  <div key={item.label} className="bg-white p-5">
+                    <dt className="text-xs font-extrabold uppercase tracking-[0.14em] text-orange-700">{item.label}</dt>
+                    <dd className="mt-2 text-sm font-semibold leading-relaxed text-slate-900">{item.value}</dd>
+                  </div>
+                ))}
+              </dl>
+            ) : null}
           </CaseSection>
 
           <CaseSection number="02" title="My role & ownership">
@@ -78,7 +96,38 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <BulletList items={project.verification} />
           </CaseSection>
 
-          <CaseSection number="07" title="Outcome & limits">
+          {project.video ? (
+            <CaseSection id="demonstration" number="07" title="Physical demonstration">
+              <div className="grid gap-7 overflow-hidden rounded-3xl bg-slate-950 p-4 text-white sm:p-6 lg:grid-cols-[minmax(17rem,.72fr)_1fr] lg:items-center">
+                <div className="overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl">
+                  <video
+                    controls
+                    playsInline
+                    preload="metadata"
+                    poster={project.video.poster}
+                    aria-label={project.video.title}
+                    aria-describedby="project-video-description"
+                    className="mx-auto aspect-[9/16] max-h-[42rem] w-full object-contain"
+                  >
+                    <source src={project.video.src} type="video/mp4" />
+                    <a href={project.video.src}>Open the Robotino demonstration video</a>
+                  </video>
+                </div>
+                <div className="p-2 sm:p-4">
+                  <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-orange-400">Laboratory evidence · {project.video.duration}</p>
+                  <h3 className="mt-3 text-2xl font-black tracking-tight">From control logic to physical motion</h3>
+                  <p id="project-video-description" className="mt-4 leading-relaxed text-slate-300">{project.video.description}</p>
+                  <p className="mt-6 text-sm font-extrabold text-white">What this footage shows</p>
+                  <ul className="mt-3 space-y-3 text-sm leading-relaxed text-slate-300">
+                    {project.video.watchFor.map((item) => <li key={item} className="flex gap-3"><span aria-hidden="true" className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-orange-400" /><span>{item}</span></li>)}
+                  </ul>
+                  <p className="mt-6 border-t border-white/15 pt-4 text-xs leading-relaxed text-slate-400">{project.video.caption}</p>
+                </div>
+              </div>
+            </CaseSection>
+          ) : null}
+
+          <CaseSection number={project.video ? "08" : "07"} title="Outcome & limits">
             <BulletList items={project.outcome} />
             <p className="mt-6 rounded-2xl bg-slate-100 p-5 text-sm leading-relaxed text-slate-700"><strong className="text-slate-950">Learning:</strong> {project.learning}</p>
           </CaseSection>
@@ -101,8 +150,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
   );
 }
 
-function CaseSection({ number, title, children }: { number: string; title: string; children: React.ReactNode }) {
-  return <section className="border-t border-slate-300 pt-6"><p className="font-mono text-xs font-bold text-orange-700">{number}</p><h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950">{title}</h2><div className="mt-5 leading-relaxed text-slate-700">{children}</div></section>;
+function CaseSection({ number, title, children, id }: { number: string; title: string; children: React.ReactNode; id?: string }) {
+  return <section id={id} className="scroll-mt-28 border-t border-slate-300 pt-6"><p className="font-mono text-xs font-bold text-orange-700">{number}</p><h2 className="mt-2 text-3xl font-black tracking-tight text-slate-950">{title}</h2><div className="mt-5 leading-relaxed text-slate-700">{children}</div></section>;
 }
 
 function BulletList({ items }: { items: string[] }) {

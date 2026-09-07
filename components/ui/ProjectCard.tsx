@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import { Play } from "lucide-react";
 import type { Project } from "@/data/projects";
 import { disciplineLabels } from "@/data/projects";
 
@@ -11,6 +12,11 @@ export default function ProjectCard({ project }: { project: Project }) {
     >
       <div className="relative aspect-[16/9] overflow-hidden border-b border-slate-200 bg-slate-100">
         <Image src={project.visual} alt={project.visualAlt} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover transition duration-500 group-hover:scale-[1.02]" />
+        {project.video ? (
+          <span className="absolute left-4 top-4 inline-flex items-center gap-2 rounded-full border border-white/40 bg-slate-950/85 px-3 py-1.5 text-xs font-extrabold text-white shadow-lg backdrop-blur">
+            <Play aria-hidden="true" className="h-3.5 w-3.5 fill-current" /> Video demonstration
+          </span>
+        ) : null}
       </div>
       <div className="flex flex-1 flex-col p-6">
         <div className="flex flex-wrap items-center gap-2 text-xs font-bold uppercase tracking-wide text-slate-500">
