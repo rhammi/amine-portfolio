@@ -33,8 +33,8 @@ export default function HeroHeader() {
               sizes="(max-width: 640px) 75vw, (max-width: 1024px) 300px, 325px"
               className="object-cover object-[center_28%] transition duration-700 group-hover:scale-[1.025]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-slate-950/10" />
-            <p className="absolute inset-x-0 bottom-0 p-5 text-xs font-extrabold uppercase tracking-[0.16em] text-white">
+            <div className="absolute inset-0 bg-gradient-to-t from-slate-950/45 via-transparent to-slate-950/25" />
+            <p className="absolute left-4 top-4 rounded-full border border-white/20 bg-slate-950/80 px-3 py-2 text-[0.68rem] font-extrabold uppercase tracking-[0.14em] text-white backdrop-blur-sm sm:text-xs">
               Industrial reliability <span aria-hidden="true" className="text-orange-400">↗</span>
             </p>
           </Link>
