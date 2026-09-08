@@ -41,8 +41,9 @@ export const disciplines: Discipline[] = [
     eyebrow: "Pillar 03",
     title: "Mechatronics, Controls & Automation",
     proposition: "I design control logic around measurable states, safe transitions and the physical system the software must operate.",
-    methods: ["PLC and Ladder Logic", "GRAFCET sequencing", "MATLAB/Simulink modelling", "Instrumentation and sensors", "Mobile-robot control", "Embedded C", "Interlocks and fault recovery", "Calibration and repeatability"],
+    methods: ["PLC and Ladder Logic", "GRAFCET sequencing", "MATLAB/Simulink modelling", "Digital twins and MQTT", "Instrumentation and sensors", "Mobile-robot control", "Embedded C", "Interlocks and fault recovery", "Calibration and repeatability"],
     evidence: [
+      { capability: "Digital twin & tension control", proof: "Simulink–MQTT wire-winder with load-cell feedback and physical demonstration", href: "/projects/wire-winder-digital-twin" },
       { capability: "Industrial automation", proof: "MicroLogix handshake between FESTO Pick & Place and press stations", href: "/projects/modular-production-cell-automation" },
       { capability: "Autonomous mobile systems", proof: "Robotino modelling, sensor-state logic, recovery and physical demonstration", href: "/projects/robotino-autonomous-route-following" },
       { capability: "Embedded control", proof: "Dual-MCU tracked vehicle with PWM, encoder feedback and motor calibration", href: "/projects/tracked-vehicle-dual-mcu-control" },

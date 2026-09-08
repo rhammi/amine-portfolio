@@ -138,7 +138,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
           {project.video ? (
             <CaseSection id="demonstration" number={videoNumber} title="Physical demonstration">
-              <div className="grid gap-7 overflow-hidden rounded-3xl bg-slate-950 p-4 text-white sm:p-6 lg:grid-cols-[minmax(17rem,.72fr)_1fr] lg:items-center">
+              <div className={`grid gap-7 overflow-hidden rounded-3xl bg-slate-950 p-4 text-white sm:p-6 lg:items-center ${project.video.aspect === "landscape" ? "lg:grid-cols-[minmax(25rem,1.15fr)_.85fr]" : "lg:grid-cols-[minmax(17rem,.72fr)_1fr]"}`}>
                 <div className="overflow-hidden rounded-2xl border border-white/15 bg-black shadow-2xl">
                   <video
                     controls
@@ -147,7 +147,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     poster={project.video.poster}
                     aria-label={project.video.title}
                     aria-describedby="project-video-description"
-                    className="mx-auto aspect-[9/16] max-h-[42rem] w-full object-contain"
+                    className={project.video.aspect === "landscape" ? "mx-auto aspect-video max-h-[32rem] w-full object-contain" : "mx-auto aspect-[9/16] max-h-[42rem] w-full object-contain"}
                   >
                     <source src={project.video.src} type="video/mp4" />
                     <a href={project.video.src}>Open the project demonstration video</a>
