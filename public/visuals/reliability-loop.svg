@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#0f172a"/><stop offset="1" stop-color="#1e293b"/></linearGradient><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3 0 6Z" fill="#fb923c"/></marker></defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <g opacity=".08" stroke="#fff"><path d="M0 100H1200M0 200H1200M0 300H1200M0 400H1200M0 500H1200M0 600H1200"/><path d="M100 0V675M200 0V675M300 0V675M400 0V675M500 0V675M600 0V675M700 0V675M800 0V675M900 0V675M1000 0V675M1100 0V675"/></g>
+  <text x="80" y="92" fill="#fb923c" font-family="Arial" font-size="22" font-weight="700" letter-spacing="3">RELIABILITY DECISION LOOP</text>
+  <text x="80" y="137" fill="#fff" font-family="Arial" font-size="42" font-weight="800">Evidence into action</text>
+  <g font-family="Arial" text-anchor="middle">
+    <g transform="translate(190 360)"><circle r="94" fill="#fff" opacity=".98"/><text y="-12" fill="#0f172a" font-size="24" font-weight="800">Evidence</text><text y="24" fill="#475569" font-size="17">history · field · cost</text></g>
+    <g transform="translate(460 360)"><circle r="94" fill="#fff" opacity=".98"/><text y="-12" fill="#0f172a" font-size="24" font-weight="800">Structure</text><text y="24" fill="#475569" font-size="17">events · failure modes</text></g>
+    <g transform="translate(730 360)"><circle r="94" fill="#fff" opacity=".98"/><text y="-12" fill="#0f172a" font-size="24" font-weight="800">Analyse</text><text y="24" fill="#475569" font-size="17">life · trend · risk</text></g>
+    <g transform="translate(1000 360)"><circle r="94" fill="#fb923c"/><text y="-12" fill="#fff" font-size="24" font-weight="800">Decide</text><text y="24" fill="#fff" font-size="17">prioritise · verify</text></g>
+  </g>
+  <g fill="none" stroke="#fb923c" stroke-width="5" marker-end="url(#arrow)"><path d="M286 360H356"/><path d="M556 360H626"/><path d="M826 360H896"/></g>
+  <path d="M1000 465C1000 570 190 570 190 465" fill="none" stroke="#94a3b8" stroke-width="3" stroke-dasharray="10 10" marker-end="url(#arrow)"/>
+  <text x="600" y="620" text-anchor="middle" fill="#cbd5e1" font-family="Arial" font-size="17">Review the result · update the evidence · refine the strategy</text>
+</svg>

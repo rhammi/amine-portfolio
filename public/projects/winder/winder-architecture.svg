@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Wire-winder digital-twin architecture</title>
+  <desc id="desc">English system diagram connecting the Simulink dashboard to MQTT, an Arduino Uno R4 WiFi, the DB15 machine interface, three stepper motors, soft limits, a load-cell tension signal and the emergency-stop chain.</desc>
+  <rect width="1600" height="900" rx="36" fill="#f8fafc"/>
+  <rect x="40" y="40" width="1520" height="820" rx="28" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="90" y="112" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#c2410c" letter-spacing="3">DIGITAL-TWIN ARCHITECTURE</text>
+  <text x="90" y="168" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#0f172a">Remote command, local actuation, physical feedback</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="90" y="260" width="330" height="310" rx="28" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+    <text x="130" y="315" font-size="25" font-weight="800" fill="#1e3a8a">MATLAB / Simulink</text>
+    <text x="130" y="356" font-size="20" font-weight="700" fill="#0f172a">Remote operator interface</text>
+    <rect x="130" y="390" width="90" height="44" rx="22" fill="#0f172a"/>
+    <circle cx="154" cy="412" r="16" fill="#f8fafc"/>
+    <text x="240" y="420" font-size="18" fill="#334155">Start / stop</text>
+    <path d="M130 476 H350" stroke="#94a3b8" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="250" cy="476" r="17" fill="#f97316" stroke="#fff" stroke-width="5"/>
+    <text x="130" y="522" font-size="18" fill="#334155">Direction + tension target</text>
+    <text x="130" y="550" font-size="18" fill="#334155">Motor-speed displays</text>
+
+    <path d="M420 352 H555" stroke="#2563eb" stroke-width="8" marker-end="url(#blueArrow)"/>
+    <text x="488" y="326" text-anchor="middle" font-size="17" font-weight="800" fill="#1d4ed8">commands</text>
+
+    <rect x="565" y="300" width="230" height="230" rx="115" fill="#0f172a"/>
+    <path d="M635 420 C628 383 657 353 690 361 C706 326 770 342 761 385 C789 392 793 435 763 447 H641 C617 443 611 426 635 420Z" fill="#cbd5e1"/>
+    <text x="680" y="472" text-anchor="middle" font-size="24" font-weight="800" fill="#fff">MQTT broker</text>
+    <text x="680" y="503" text-anchor="middle" font-size="17" fill="#cbd5e1">bidirectional messaging</text>
+
+    <path d="M795 352 H900" stroke="#2563eb" stroke-width="8" marker-end="url(#blueArrow)"/>
+    <path d="M900 548 H420" stroke="#0f766e" stroke-width="8" marker-end="url(#greenArrow)"/>
+    <text x="660" y="574" text-anchor="middle" font-size="17" font-weight="800" fill="#065f46">measured tension</text>
+
+    <rect x="910" y="260" width="340" height="310" rx="28" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+    <text x="950" y="315" font-size="24" font-weight="800" fill="#9a3412">Arduino Uno R4 WiFi</text>
+    <text x="950" y="357" font-size="20" font-weight="700" fill="#0f172a">Machine-side controller</text>
+    <text x="950" y="400" font-size="18" fill="#334155">• MQTT message parsing</text>
+    <text x="950" y="434" font-size="18" fill="#334155">• tension conversion + correction</text>
+    <text x="950" y="468" font-size="18" fill="#334155">• STEP / DIR / ENABLE signals</text>
+    <text x="950" y="502" font-size="18" fill="#334155">• soft-limit debounce</text>
+    <text x="950" y="536" font-size="18" fill="#334155">• safe driver enable at start</text>
+
+    <path d="M1250 415 H1320" stroke="#c2410c" stroke-width="8" marker-end="url(#orangeArrow)"/>
+    <rect x="1330" y="240" width="180" height="350" rx="28" fill="#0f172a"/>
+    <text x="1420" y="292" text-anchor="middle" font-size="23" font-weight="800" fill="#fdba74">DB15 interface</text>
+    <text x="1420" y="332" text-anchor="middle" font-size="17" fill="#cbd5e1">3 × enable</text>
+    <text x="1420" y="362" text-anchor="middle" font-size="17" fill="#cbd5e1">3 × direction</text>
+    <text x="1420" y="392" text-anchor="middle" font-size="17" fill="#cbd5e1">3 × step</text>
+    <text x="1420" y="422" text-anchor="middle" font-size="17" fill="#cbd5e1">2 × soft limit</text>
+    <text x="1420" y="452" text-anchor="middle" font-size="17" fill="#cbd5e1">E-stop status</text>
+    <text x="1420" y="482" text-anchor="middle" font-size="17" fill="#cbd5e1">tension input</text>
+    <rect x="1364" y="520" width="112" height="38" rx="19" fill="#f97316"/>
+    <text x="1420" y="546" text-anchor="middle" font-size="17" font-weight="800" fill="#fff">0–5 V ADC</text>
+
+    <rect x="90" y="660" width="1420" height="130" rx="30" fill="#0f172a"/>
+    <text x="130" y="708" font-size="23" font-weight="800" fill="#fff">Physical wire-winder</text>
+    <text x="130" y="746" font-size="18" fill="#cbd5e1">Unwind stepper</text>
+    <circle cx="350" cy="728" r="40" fill="none" stroke="#94a3b8" stroke-width="14"/>
+    <path d="M392 728 H635" stroke="#f97316" stroke-width="6"/>
+    <rect x="636" y="696" width="210" height="64" rx="24" fill="#334155"/>
+    <text x="741" y="735" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">load cell + rollers</text>
+    <path d="M846 728 H1085" stroke="#f97316" stroke-width="6"/>
+    <circle cx="1127" cy="728" r="40" fill="none" stroke="#94a3b8" stroke-width="14"/>
+    <text x="1190" y="708" font-size="18" fill="#cbd5e1">Wind stepper</text>
+    <path d="M1010 778 H1290" stroke="#64748b" stroke-width="10" stroke-linecap="round"/>
+    <rect x="1080" y="764" width="80" height="28" rx="12" fill="#22c55e"/>
+    <text x="1320" y="784" font-size="17" fill="#cbd5e1">Traverse + soft limits</text>
+
+    <path d="M1420 590 V625 H1120 V660" fill="none" stroke="#c2410c" stroke-width="7" marker-end="url(#orangeArrow)"/>
+    <path d="M720 660 V618 H1040 V570" fill="none" stroke="#0f766e" stroke-width="7" marker-end="url(#greenArrow)"/>
+    <text x="858" y="611" text-anchor="middle" font-size="17" font-weight="800" fill="#065f46">load-cell feedback</text>
+
+    <rect x="90" y="814" width="1420" height="30" rx="12" fill="#fff7ed"/>
+    <text x="800" y="836" text-anchor="middle" font-size="17" font-weight="700" fill="#7c2d12">Implemented team choice: one WiFi-capable Arduino replaced the brief’s Raspberry Pi + Arduino pair, removing one local communication link.</text>
+  </g>
+  <defs>
+    <marker id="blueArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563eb"/></marker>
+    <marker id="greenArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0f766e"/></marker>
+    <marker id="orangeArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#c2410c"/></marker>
+  </defs>
+</svg>

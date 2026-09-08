@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Dual-microcontroller architecture for the tracked vehicle</title>
+  <desc id="desc">English block diagram showing Xbox BLE control, ESP32 FreeRTOS tasks, I2C exchange, STM32 motor control, L298N drive, tracks, Hall encoders, and TFT feedback.</desc>
+  <rect width="1600" height="900" rx="36" fill="#f8fafc"/>
+  <rect x="40" y="40" width="1520" height="820" rx="28" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="90" y="112" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#c2410c" letter-spacing="3">SYSTEM ARCHITECTURE</text>
+  <text x="90" y="168" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#0f172a">Command, actuation, measurement, feedback</text>
+  <g font-family="Arial, sans-serif">
+    <rect x="90" y="280" width="220" height="200" rx="26" fill="#0f172a"/>
+    <path d="M144 368 C155 321 245 321 256 368 L273 421 C279 441 253 452 241 435 L218 404 H182 L159 435 C147 452 121 441 127 421Z" fill="#cbd5e1"/>
+    <circle cx="174" cy="367" r="13" fill="#f97316"/><circle cx="232" cy="367" r="13" fill="#22c55e"/>
+    <text x="200" y="520" text-anchor="middle" font-size="22" font-weight="800" fill="#0f172a">Xbox controller</text>
+    <text x="200" y="550" text-anchor="middle" font-size="18" fill="#475569">manual input</text>
+
+    <path d="M310 380 H410" stroke="#2563eb" stroke-width="8" marker-end="url(#blueArrow)"/>
+    <text x="360" y="356" text-anchor="middle" font-size="18" font-weight="800" fill="#1d4ed8">BLE</text>
+
+    <rect x="420" y="238" width="350" height="285" rx="28" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+    <text x="460" y="290" font-size="24" font-weight="800" fill="#1e3a8a">ESP32-S3 · coordinator</text>
+    <text x="460" y="337" font-size="20" font-weight="700" fill="#0f172a">FreeRTOS tasks</text>
+    <text x="460" y="373" font-size="19" fill="#334155">• read controller state</text>
+    <text x="460" y="407" font-size="19" fill="#334155">• map speed and direction</text>
+    <text x="460" y="441" font-size="19" fill="#334155">• refresh TFT and web settings</text>
+    <text x="460" y="475" font-size="19" fill="#334155">• exchange commands and feedback</text>
+
+    <path d="M770 335 H880" stroke="#c2410c" stroke-width="8" marker-end="url(#orangeArrow)"/>
+    <path d="M880 425 H770" stroke="#0f766e" stroke-width="8" marker-end="url(#greenArrow)"/>
+    <text x="825" y="309" text-anchor="middle" font-size="18" font-weight="800" fill="#9a3412">I²C commands</text>
+    <text x="825" y="463" text-anchor="middle" font-size="18" font-weight="800" fill="#065f46">measured feedback</text>
+
+    <rect x="890" y="238" width="350" height="285" rx="28" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+    <text x="930" y="290" font-size="24" font-weight="800" fill="#9a3412">STM32L432KC · executor</text>
+    <text x="930" y="337" font-size="20" font-weight="700" fill="#0f172a">Propulsion control</text>
+    <text x="930" y="373" font-size="19" fill="#334155">• two independent PWM channels</text>
+    <text x="930" y="407" font-size="19" fill="#334155">• H-bridge direction GPIO</text>
+    <text x="930" y="441" font-size="19" fill="#334155">• 100 ms encoder sampling</text>
+    <text x="930" y="475" font-size="19" fill="#334155">• correction and automatic states</text>
+
+    <path d="M1240 380 H1322" stroke="#c2410c" stroke-width="8" marker-end="url(#orangeArrow)"/>
+    <rect x="1330" y="275" width="180" height="210" rx="26" fill="#0f172a"/>
+    <text x="1420" y="323" text-anchor="middle" font-size="23" font-weight="800" fill="#fdba74">L298N</text>
+    <text x="1420" y="357" text-anchor="middle" font-size="18" fill="#cbd5e1">dual H-bridge</text>
+    <rect x="1365" y="385" width="110" height="30" rx="15" fill="#f97316"/>
+    <circle cx="1380" cy="435" r="16" fill="#cbd5e1"/><circle cx="1460" cy="435" r="16" fill="#cbd5e1"/>
+
+    <rect x="350" y="640" width="900" height="110" rx="28" fill="#0f172a"/>
+    <text x="800" y="682" text-anchor="middle" font-size="24" font-weight="800" fill="#fff">Differential tracked drive</text>
+    <path d="M430 716 H680" stroke="#94a3b8" stroke-width="30" stroke-linecap="round"/><path d="M920 716 H1170" stroke="#94a3b8" stroke-width="30" stroke-linecap="round"/>
+    <circle cx="465" cy="716" r="20" fill="#334155"/><circle cx="645" cy="716" r="20" fill="#334155"/><circle cx="955" cy="716" r="20" fill="#334155"/><circle cx="1135" cy="716" r="20" fill="#334155"/>
+    <path d="M1420 485 V590 H1060 V640" fill="none" stroke="#f97316" stroke-width="8" marker-end="url(#orangeArrow)"/>
+    <text x="1300" y="565" text-anchor="middle" font-size="18" font-weight="800" fill="#9a3412">motor power</text>
+    <path d="M540 640 V585 H1030 V523" fill="none" stroke="#0f766e" stroke-width="8" marker-end="url(#greenArrow)"/>
+    <text x="765" y="574" text-anchor="middle" font-size="18" font-weight="800" fill="#065f46">Hall encoder pulses</text>
+
+    <rect x="90" y="640" width="210" height="110" rx="24" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="2"/>
+    <text x="195" y="681" text-anchor="middle" font-size="21" font-weight="800" fill="#065f46">TFT feedback</text>
+    <text x="195" y="715" text-anchor="middle" font-size="17" fill="#065f46">mode · PWM · RPS</text>
+    <path d="M420 500 C360 540 320 575 270 640" fill="none" stroke="#0f766e" stroke-width="6" marker-end="url(#greenArrow)"/>
+
+    <rect x="90" y="792" width="1420" height="42" rx="14" fill="#fff7ed"/>
+    <text x="800" y="820" text-anchor="middle" font-size="19" font-weight="700" fill="#7c2d12">Amine’s documented stage: PWM + direction + encoder measurement + motor calibration on the STM32 propulsion chain.</text>
+  </g>
+  <defs>
+    <marker id="blueArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563eb"/></marker>
+    <marker id="orangeArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#c2410c"/></marker>
+    <marker id="greenArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0f766e"/></marker>
+  </defs>
+</svg>

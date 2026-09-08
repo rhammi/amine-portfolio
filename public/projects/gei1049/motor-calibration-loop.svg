@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Tracked vehicle motor calibration workflow</title>
+  <desc id="desc">English diagram showing how equal PWM was measured with Hall encoders and corrected for motor and track mismatch.</desc>
+  <rect width="1600" height="900" rx="36" fill="#f8fafc"/>
+  <rect x="40" y="40" width="1520" height="820" rx="28" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="90" y="112" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#c2410c" letter-spacing="3">CALIBRATION LOGIC</text>
+  <text x="90" y="168" font-family="Arial, sans-serif" font-size="48" font-weight="800" fill="#0f172a">Equal command did not mean equal motion</text>
+  <g font-family="Arial, sans-serif">
+    <g transform="translate(90 260)">
+      <rect width="300" height="250" rx="28" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+      <text x="34" y="48" font-size="20" font-weight="800" fill="#9a3412">01 · COMMAND</text>
+      <text x="34" y="93" font-size="25" font-weight="800" fill="#0f172a">Same PWM</text>
+      <text x="34" y="128" font-size="19" fill="#475569">sent to both motors</text>
+      <path d="M45 187 H255" stroke="#cbd5e1" stroke-width="12" stroke-linecap="round"/>
+      <path d="M45 187 H195" stroke="#f97316" stroke-width="12" stroke-linecap="round"/>
+      <circle cx="195" cy="187" r="15" fill="#c2410c"/>
+      <text x="45" y="226" font-size="17" fill="#64748b">Example: 50% duty cycle</text>
+    </g>
+    <path d="M410 385 H485" stroke="#cbd5e1" stroke-width="7" marker-end="url(#arrow)"/>
+    <g transform="translate(505 260)">
+      <rect width="300" height="250" rx="28" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="3"/>
+      <text x="34" y="48" font-size="20" font-weight="800" fill="#475569">02 · OBSERVE</text>
+      <text x="34" y="93" font-size="25" font-weight="800" fill="#0f172a">Vehicle drifts</text>
+      <text x="34" y="128" font-size="19" fill="#475569">under real load</text>
+      <path d="M55 205 C105 185 154 143 242 149" fill="none" stroke="#94a3b8" stroke-width="18" stroke-linecap="round"/>
+      <path d="M55 205 C115 184 173 172 250 190" fill="none" stroke="#f97316" stroke-width="7" stroke-linecap="round" stroke-dasharray="15 12"/>
+      <text x="34" y="235" font-size="16" fill="#64748b">motors · tracks · L298N losses</text>
+    </g>
+    <path d="M825 385 H900" stroke="#cbd5e1" stroke-width="7" marker-end="url(#arrow)"/>
+    <g transform="translate(920 260)">
+      <rect width="300" height="250" rx="28" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="3"/>
+      <text x="34" y="48" font-size="20" font-weight="800" fill="#065f46">03 · MEASURE</text>
+      <text x="34" y="93" font-size="25" font-weight="800" fill="#0f172a">Encoder deltas</text>
+      <text x="34" y="128" font-size="19" fill="#475569">sampled every 100 ms</text>
+      <rect x="34" y="160" width="232" height="52" rx="14" fill="#0f172a"/>
+      <text x="150" y="193" text-anchor="middle" font-family="monospace" font-size="20" font-weight="700" fill="#86efac">RPS = Δcount / NΔt</text>
+      <text x="34" y="238" font-size="16" fill="#64748b">TIM1 + TIM2 encoders · TIM7 clock</text>
+    </g>
+    <path d="M1240 385 H1315" stroke="#cbd5e1" stroke-width="7" marker-end="url(#arrow)"/>
+    <g transform="translate(1335 260)">
+      <rect width="175" height="250" rx="28" fill="#0f172a"/>
+      <text x="88" y="49" text-anchor="middle" font-size="20" font-weight="800" fill="#fdba74">04</text>
+      <text x="88" y="94" text-anchor="middle" font-size="24" font-weight="800" fill="#fff">Correct</text>
+      <text x="88" y="130" text-anchor="middle" font-size="18" fill="#cbd5e1">direction-</text>
+      <text x="88" y="155" text-anchor="middle" font-size="18" fill="#cbd5e1">dependent</text>
+      <text x="88" y="180" text-anchor="middle" font-size="18" fill="#cbd5e1">PWM factors</text>
+      <circle cx="88" cy="218" r="17" fill="#22c55e"/>
+    </g>
+
+    <path d="M1420 520 C1420 650 1170 678 825 678 C480 678 210 655 210 535" fill="none" stroke="#c2410c" stroke-width="7" stroke-dasharray="16 12" marker-end="url(#orangeArrow)"/>
+    <text x="810" y="716" text-anchor="middle" font-size="20" font-weight="800" fill="#9a3412">Repeat until straight travel and turn response are acceptably consistent</text>
+
+    <rect x="90" y="770" width="1420" height="64" rx="18" fill="#eff6ff" stroke="#bfdbfe" stroke-width="2"/>
+    <text x="800" y="810" text-anchor="middle" font-size="20" font-weight="700" fill="#1e3a8a">Report check: 1 m test at 50% PWM recorded 1,770 pulses versus a 1,767-pulse theoretical value.</text>
+  </g>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#cbd5e1"/></marker>
+    <marker id="orangeArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#c2410c"/></marker>
+  </defs>
+</svg>

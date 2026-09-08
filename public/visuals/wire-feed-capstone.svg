@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675">
+  <defs><linearGradient id="bg6" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff7ed"/><stop offset="1" stop-color="#e2e8f0"/></linearGradient><marker id="a6" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0 0L9 3 0 6Z" fill="#f97316"/></marker></defs>
+  <rect width="1200" height="675" fill="url(#bg6)"/>
+  <text x="70" y="82" fill="#ea580c" font-family="Arial" font-size="21" font-weight="700" letter-spacing="3">IN-PROGRESS CAPSTONE</text>
+  <text x="70" y="128" fill="#0f172a" font-family="Arial" font-size="40" font-weight="800">Measure, control and protect the feed path</text>
+  <g font-family="Arial" text-anchor="middle">
+    <g transform="translate(155 335)"><circle r="92" fill="#fff" stroke="#0f172a" stroke-width="8"/><circle r="30" fill="#cbd5e1"/><path d="M0-72A72 72 0 0 1 62 36" fill="none" stroke="#f97316" stroke-width="8"/><text y="130" fill="#0f172a" font-size="20" font-weight="800">Wire reel</text></g>
+    <g transform="translate(430 335)"><rect x="-90" y="-72" width="180" height="144" rx="28" fill="#fff" stroke="#cbd5e1" stroke-width="4"/><circle r="34" fill="#172554"/><text y="118" fill="#0f172a" font-size="20" font-weight="800">Drive</text></g>
+    <g transform="translate(690 335)"><rect x="-90" y="-72" width="180" height="144" rx="28" fill="#fff" stroke="#f97316" stroke-width="5"/><path d="M-35 0H35M0-35V35" stroke="#f97316" stroke-width="7"/><text y="118" fill="#0f172a" font-size="20" font-weight="800">Displacement sensor</text></g>
+    <g transform="translate(1030 335)"><path d="M-100-72H100V72H-100Z" fill="#0f172a"/><path d="M-70 72L-45 115H45L70 72" fill="#334155"/><text y="-8" fill="#fff" font-size="21" font-weight="800">Process</text><text y="25" fill="#cbd5e1" font-size="16">interface</text></g>
+  </g>
+  <path d="M245 335H340M520 335H600M780 335H930" stroke="#f97316" stroke-width="7" fill="none" marker-end="url(#a6)"/>
+  <rect x="420" y="520" width="360" height="100" rx="26" fill="#172554"/><text x="600" y="559" text-anchor="middle" fill="#fff" font-family="Arial" font-size="22" font-weight="800">PLC control &amp; interlocks</text><text x="600" y="590" text-anchor="middle" fill="#bfdbfe" font-family="Arial" font-size="16">slip · rupture · obstruction · end of coil</text>
+  <path d="M430 408V520M690 408V520M1030 430V570H780" fill="none" stroke="#2563eb" stroke-width="4" stroke-dasharray="10 9"/>
+</svg>
