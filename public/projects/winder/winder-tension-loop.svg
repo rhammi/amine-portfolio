@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">Wire-tension measurement and control loop</title>
+  <desc id="desc">English control diagram showing the load cell, 0 to 10 volt amplifier, resistor divider, Arduino ADC, tension calculation, proportional controller with saturation, master and regulated stepper speeds, physical wire tension feedback and fail-safe emergency-stop behaviour.</desc>
+  <rect width="1600" height="900" rx="36" fill="#f8fafc"/>
+  <rect x="40" y="40" width="1520" height="820" rx="28" fill="#fff" stroke="#cbd5e1" stroke-width="2"/>
+  <text x="90" y="112" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="#c2410c" letter-spacing="3">CONTROL IMPLEMENTATION</text>
+  <text x="90" y="168" font-family="Arial, sans-serif" font-size="44" font-weight="800" fill="#0f172a">Measured tension becomes a bounded speed correction</text>
+
+  <g font-family="Arial, sans-serif">
+    <rect x="90" y="260" width="250" height="190" rx="26" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="3"/>
+    <text x="215" y="312" text-anchor="middle" font-size="23" font-weight="800" fill="#065f46">1 · MEASURE</text>
+    <text x="215" y="354" text-anchor="middle" font-size="21" font-weight="700" fill="#0f172a">Load cell + amplifier</text>
+    <text x="215" y="390" text-anchor="middle" font-size="18" fill="#334155">0–10 V signal</text>
+    <text x="215" y="420" text-anchor="middle" font-size="18" fill="#334155">proportional to pulley load</text>
+
+    <path d="M340 355 H405" stroke="#0f766e" stroke-width="8" marker-end="url(#greenArrow)"/>
+    <rect x="415" y="260" width="250" height="190" rx="26" fill="#eff6ff" stroke="#93c5fd" stroke-width="3"/>
+    <text x="540" y="312" text-anchor="middle" font-size="23" font-weight="800" fill="#1e3a8a">2 · CONDITION</text>
+    <text x="540" y="354" text-anchor="middle" font-size="21" font-weight="700" fill="#0f172a">Equal resistor divider</text>
+    <text x="540" y="390" text-anchor="middle" font-size="18" fill="#334155">≈ 1.2 kΩ + 1.2 kΩ</text>
+    <text x="540" y="420" text-anchor="middle" font-size="18" fill="#334155">0–10 V becomes 0–5 V</text>
+
+    <path d="M665 355 H730" stroke="#2563eb" stroke-width="8" marker-end="url(#blueArrow)"/>
+    <rect x="740" y="260" width="250" height="190" rx="26" fill="#f8fafc" stroke="#94a3b8" stroke-width="3"/>
+    <text x="865" y="312" text-anchor="middle" font-size="23" font-weight="800" fill="#475569">3 · INTERPRET</text>
+    <text x="865" y="354" text-anchor="middle" font-size="21" font-weight="700" fill="#0f172a">10-bit Arduino ADC</text>
+    <text x="865" y="390" text-anchor="middle" font-size="18" fill="#334155">0–1023 → voltage → load</text>
+    <text x="865" y="420" text-anchor="middle" font-size="18" fill="#334155">geometry → cable tension</text>
+
+    <path d="M990 355 H1055" stroke="#c2410c" stroke-width="8" marker-end="url(#orangeArrow)"/>
+    <rect x="1065" y="260" width="250" height="190" rx="26" fill="#fff7ed" stroke="#fdba74" stroke-width="3"/>
+    <text x="1190" y="312" text-anchor="middle" font-size="23" font-weight="800" fill="#9a3412">4 · CORRECT</text>
+    <text x="1190" y="354" text-anchor="middle" font-size="18" font-weight="700" fill="#0f172a">e = target − measured</text>
+    <text x="1190" y="390" text-anchor="middle" font-size="17" fill="#334155">u = Kp × e</text>
+    <text x="1190" y="420" text-anchor="middle" font-size="17" fill="#334155">saturate at ± correction limit</text>
+
+    <path d="M1315 355 H1380" stroke="#c2410c" stroke-width="8" marker-end="url(#orangeArrow)"/>
+    <rect x="1390" y="260" width="120" height="190" rx="26" fill="#0f172a"/>
+    <text x="1450" y="312" text-anchor="middle" font-size="23" font-weight="800" fill="#fdba74">5</text>
+    <text x="1450" y="349" text-anchor="middle" font-size="18" font-weight="700" fill="#fff">APPLY</text>
+    <text x="1450" y="386" text-anchor="middle" font-size="16" fill="#cbd5e1">master</text>
+    <text x="1450" y="410" text-anchor="middle" font-size="16" fill="#cbd5e1">+ regulated</text>
+    <text x="1450" y="434" text-anchor="middle" font-size="16" fill="#cbd5e1">stepper</text>
+
+    <path d="M1450 450 V548 H210 V450" fill="none" stroke="#0f766e" stroke-width="7" marker-end="url(#greenArrow)"/>
+    <text x="820" y="538" text-anchor="middle" font-size="18" font-weight="800" fill="#065f46">physical wire path closes the measurement loop</text>
+
+    <rect x="90" y="610" width="680" height="145" rx="26" fill="#0f172a"/>
+    <text x="130" y="655" font-size="22" font-weight="800" fill="#fff">Direction-dependent master / regulated motor</text>
+    <text x="130" y="693" font-size="16" fill="#cbd5e1">Winding: one bobbin holds fixed speed; the other receives the correction.</text>
+    <text x="130" y="724" font-size="16" fill="#cbd5e1">Unwinding: the fixed and regulated roles swap.</text>
+
+    <rect x="805" y="610" width="705" height="145" rx="26" fill="#fff7ed" stroke="#fed7aa" stroke-width="2"/>
+    <text x="845" y="655" font-size="22" font-weight="800" fill="#9a3412">Model–hardware boundary</text>
+    <text x="845" y="693" font-size="16" fill="#7c2d12">PID behaviour was explored in Simulink; the embedded version uses P only.</text>
+    <text x="845" y="724" font-size="16" fill="#7c2d12">PI with anti-windup is documented as future work.</text>
+
+    <rect x="90" y="790" width="1420" height="45" rx="16" fill="#fee2e2" stroke="#fecaca" stroke-width="2"/>
+    <text x="800" y="820" text-anchor="middle" font-size="16" font-weight="700" fill="#991b1b">Safety path: hardware E-stop removes driver power; software starts with drivers disabled and enables them only when the E-stop state permits.</text>
+  </g>
+  <defs>
+    <marker id="blueArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#2563eb"/></marker>
+    <marker id="greenArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#0f766e"/></marker>
+    <marker id="orangeArrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#c2410c"/></marker>
+  </defs>
+</svg>

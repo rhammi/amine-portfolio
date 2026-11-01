@@ -1,0 +1,318 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "bytes": 59599,
+    "final": "/",
+    "hash": null
+  },
+  {
+    "path": "/_global-error",
+    "error": "HTTP Error 500: Internal Server Error"
+  },
+  {
+    "path": "/_not-found",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "/about",
+    "status": 200,
+    "bytes": 29288,
+    "final": "/about",
+    "hash": null
+  },
+  {
+    "path": "/academics",
+    "status": 200,
+    "bytes": 35781,
+    "final": "/education",
+    "hash": null
+  },
+  {
+    "path": "/contact",
+    "status": 200,
+    "bytes": 29288,
+    "final": "/about#contact",
+    "hash": null
+  },
+  {
+    "path": "/disciplines/mechanical",
+    "status": 200,
+    "bytes": 67112,
+    "final": "/disciplines/mechanical",
+    "hash": null
+  },
+  {
+    "path": "/disciplines/mechatronics",
+    "status": 200,
+    "bytes": 60724,
+    "final": "/disciplines/mechatronics",
+    "hash": null
+  },
+  {
+    "path": "/disciplines/reliability",
+    "status": 200,
+    "bytes": 52284,
+    "final": "/disciplines/reliability",
+    "hash": null
+  },
+  {
+    "path": "/education",
+    "status": 200,
+    "bytes": 35781,
+    "final": "/education",
+    "hash": null
+  },
+  {
+    "path": "/experience",
+    "status": 200,
+    "bytes": 89097,
+    "final": "/experience",
+    "hash": null
+  },
+  {
+    "path": "/experience/imperial-oil-reliability-2026",
+    "status": 200,
+    "bytes": 30550,
+    "final": "/experience/imperial-oil-reliability-2026",
+    "hash": null
+  },
+  {
+    "path": "/experience/kruger-wayagamack-2024",
+    "status": 200,
+    "bytes": 30187,
+    "final": "/experience/kruger-wayagamack-2024",
+    "hash": null
+  },
+  {
+    "path": "/experience/rio-tinto-process-optimisation-2021",
+    "status": 200,
+    "bytes": 27751,
+    "final": "/experience/rio-tinto-process-optimisation-2021",
+    "hash": null
+  },
+  {
+    "path": "/experience/rio-tinto-tdp-2023",
+    "status": 200,
+    "bytes": 30262,
+    "final": "/experience/rio-tinto-tdp-2023",
+    "hash": null
+  },
+  {
+    "path": "/experience/soucy-maintenance-2022",
+    "status": 200,
+    "bytes": 28133,
+    "final": "/experience/soucy-maintenance-2022",
+    "hash": null
+  },
+  {
+    "path": "/experience/valero-energy-2025",
+    "status": 200,
+    "bytes": 30805,
+    "final": "/experience/valero-energy-2025",
+    "hash": null
+  },
+  {
+    "path": "/favicon.ico",
+    "status": 200,
+    "bytes": 25931,
+    "final": "/favicon.ico",
+    "hash": null
+  },
+  {
+    "path": "/for",
+    "status": 200,
+    "bytes": 25853,
+    "final": "/for",
+    "hash": null
+  },
+  {
+    "path": "/for/mechanical",
+    "status": 200,
+    "bytes": 45011,
+    "final": "/for/mechanical",
+    "hash": null
+  },
+  {
+    "path": "/for/mechatronics",
+    "status": 200,
+    "bytes": 58081,
+    "final": "/for/mechatronics",
+    "hash": null
+  },
+  {
+    "path": "/for/reliability",
+    "status": 200,
+    "bytes": 46257,
+    "final": "/for/reliability",
+    "hash": null
+  },
+  {
+    "path": "/lab/reliability",
+    "status": 200,
+    "bytes": 46631,
+    "final": "/lab/reliability",
+    "hash": null
+  },
+  {
+    "path": "/lab/reproduce-weibull.py",
+    "status": 200,
+    "bytes": 3534,
+    "final": "/lab/reproduce-weibull.py",
+    "hash": null
+  },
+  {
+    "path": "/lab/synthetic-component-history.csv",
+    "status": 200,
+    "bytes": 637,
+    "final": "/lab/synthetic-component-history.csv",
+    "hash": null
+  },
+  {
+    "path": "/layout-review.html",
+    "status": 200,
+    "bytes": 1174,
+    "final": "/layout-review.html",
+    "hash": null
+  },
+  {
+    "path": "/lifesaving",
+    "status": 200,
+    "bytes": 49309,
+    "final": "/lifesaving",
+    "hash": null
+  },
+  {
+    "path": "/projects",
+    "status": 200,
+    "bytes": 143513,
+    "final": "/projects",
+    "hash": null
+  },
+  {
+    "path": "/projects/aluminium-wire-feed-capstone",
+    "status": 200,
+    "bytes": 46867,
+    "final": "/projects/aluminium-wire-feed-capstone",
+    "hash": null
+  },
+  {
+    "path": "/projects/cbm-pm-route-improvement",
+    "status": 200,
+    "bytes": 46113,
+    "final": "/projects/cbm-pm-route-improvement",
+    "hash": null
+  },
+  {
+    "path": "/projects/component-life-economics",
+    "status": 200,
+    "bytes": 46499,
+    "final": "/projects/component-life-economics",
+    "hash": null
+  },
+  {
+    "path": "/projects/dozer-fleet-rcm",
+    "status": 200,
+    "bytes": 49442,
+    "final": "/projects/dozer-fleet-rcm",
+    "hash": null
+  },
+  {
+    "path": "/projects/maintenance-data-standardisation",
+    "status": 200,
+    "bytes": 45908,
+    "final": "/projects/maintenance-data-standardisation",
+    "hash": null
+  },
+  {
+    "path": "/projects/mechanical-modifications-field-verification",
+    "status": 200,
+    "bytes": 46170,
+    "final": "/projects/mechanical-modifications-field-verification",
+    "hash": null
+  },
+  {
+    "path": "/projects/modular-production-cell-automation",
+    "status": 200,
+    "bytes": 87589,
+    "final": "/projects/modular-production-cell-automation",
+    "hash": null
+  },
+  {
+    "path": "/projects/oem-support-assessment",
+    "status": 200,
+    "bytes": 45565,
+    "final": "/projects/oem-support-assessment",
+    "hash": null
+  },
+  {
+    "path": "/projects/robotino-autonomous-route-following",
+    "status": 200,
+    "bytes": 96088,
+    "final": "/projects/robotino-autonomous-route-following",
+    "hash": null
+  },
+  {
+    "path": "/projects/stm32-interrupt-control",
+    "status": 200,
+    "bytes": 98712,
+    "final": "/projects/tracked-vehicle-dual-mcu-control",
+    "hash": null
+  },
+  {
+    "path": "/projects/stress-analysis-hand-fea",
+    "status": 200,
+    "bytes": 46149,
+    "final": "/projects/stress-analysis-hand-fea",
+    "hash": null
+  },
+  {
+    "path": "/projects/terminal-brownfield-modifications",
+    "status": 200,
+    "bytes": 54918,
+    "final": "/projects/terminal-brownfield-modifications",
+    "hash": null
+  },
+  {
+    "path": "/projects/tracked-vehicle-dual-mcu-control",
+    "status": 200,
+    "bytes": 98712,
+    "final": "/projects/tracked-vehicle-dual-mcu-control",
+    "hash": null
+  },
+  {
+    "path": "/projects/wire-winder-digital-twin",
+    "status": 200,
+    "bytes": 107651,
+    "final": "/projects/wire-winder-digital-twin",
+    "hash": null
+  },
+  {
+    "path": "/resume",
+    "status": 200,
+    "bytes": 17236,
+    "final": "/resume",
+    "hash": null
+  },
+  {
+    "path": "/resume.pdf",
+    "status": 200,
+    "bytes": 246365,
+    "final": "/resume.pdf",
+    "hash": "35b7eae9983a41243b23ec7f97cf64ce7045ffc04466f50440471b83a4060c32"
+  },
+  {
+    "path": "/robots.txt",
+    "status": 200,
+    "bytes": 119,
+    "final": "/robots.txt",
+    "hash": null
+  },
+  {
+    "path": "/sitemap.xml",
+    "status": 200,
+    "bytes": 4843,
+    "final": "/sitemap.xml",
+    "hash": null
+  }
+]

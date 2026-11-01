@@ -1,115 +1,227 @@
+import Image from "next/image";
 import Link from "next/link";
-
-import Navbar from "@/components/ui/Navbar";
-import HeroHeader from "@/components/ui/HeroHeader";
 import CompanyLogoStrip from "@/components/ui/CompanyLogoStrip";
-import ExperienceTimeline from "@/components/ui/ExperienceTimeline";
-
-const featured = [
-  {
-    title: "Heavy Equipment Reliability Analytics",
-    body: "SAP maintenance history, event classification, life-data analysis, and repeatable reliability workflows for mining equipment.",
-    href: "/projects/heavy-equipment-reliability",
-  },
-  {
-    title: "Weibull & Life-Data Analysis",
-    body: "Failed-versus-suspended event review, maximum-likelihood fitting, and survival metrics used to support component reliability decisions.",
-    href: "/projects/weibull-life-data",
-  },
-  {
-    title: "789F Structural Inspection Reference",
-    body: "Field-informed inspection-reference development by comparing chassis layouts, validating component names, and standardizing inspection points.",
-    href: "/projects/789f-inspection-guide",
-  },
+import EvidenceShelf, {
+  type EvidenceCard,
+} from "@/components/ui/EvidenceShelf";
+import Footer from "@/components/ui/Footer";
+import HeroHeader from "@/components/ui/HeroHeader";
+import LabPreview from "@/components/ui/LabPreview";
+import Navbar from "@/components/ui/Navbar";
+import ArtefactStrip from "@/components/ui/ArtefactStrip";
+import { projects } from "@/data/projects";
+const featuredSlugs = [
+  "dozer-fleet-rcm",
+  "modular-production-cell-automation",
+  "terminal-brownfield-modifications",
+  "tracked-vehicle-dual-mcu-control",
 ];
-
 export default function Home() {
+  const selected: EvidenceCard[] = featuredSlugs.flatMap((slug) => {
+    const p = projects.find((item) => item.slug === slug);
+    return p
+      ? [
+          {
+            slug: p.slug,
+            title: p.title,
+            organisation: p.organisation,
+            period: p.period,
+            source: p.source,
+            disciplines: p.disciplines,
+            summary: p.summary,
+            visual: p.visual,
+            visualAlt: p.visualAlt,
+            visualPosition: p.visualPosition,
+            visualCredit: p.visualCredit,
+            visualCaption: p.visualCaption,
+            hasVideo: Boolean(p.video),
+          },
+        ]
+      : [];
+  });
   return (
-    <main className="min-h-screen">
+    <main id="main-content" className="min-h-screen">
       <Navbar />
       <HeroHeader />
-
-      <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8">
-        <section className="rounded-3xl border border-slate-200 bg-white/90 p-7 shadow-sm sm:p-10">
-          <div className="grid gap-8 lg:grid-cols-[1.15fr_.85fr] lg:items-start">
+      <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
+        <section
+          id="featured-evidence"
+          className="scroll-mt-24 py-10 sm:py-12"
+          aria-labelledby="featured-title"
+        >
+          <div className="flex flex-wrap items-end justify-between gap-5">
             <div>
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">Engineering profile</p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl">Reliability engineering from field context to decision-ready data.</h2>
-              <p className="mt-4 max-w-3xl text-lg leading-relaxed text-slate-700">
-                I work at the intersection of mechanical reliability, maintenance systems, and engineering analytics. My experience spans mining, refining, metallurgy, pulp and paper, and manufacturing, with a focus on understanding how equipment fails, improving maintenance information, and building practical tools that help engineers make better decisions.
+              <p className="journal-label">
+                01 / Featured engineering evidence
               </p>
+              <h2
+                id="featured-title"
+                className="mt-3 text-3xl font-bold tracking-tight text-slate-950 sm:text-4xl"
+              >
+                The work behind the decisions.
+              </h2>
             </div>
-            <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-1">
-              {[
-                ["Reliability", "Weibull • RCFA • FMECA • PM/CBM • failure modes"],
-                ["Maintenance data", "SAP PM • work orders • equipment history • master data"],
-                ["Mechanical", "Heavy equipment • pumps • hydraulics • structural inspection"],
-                ["Analytics", "Excel • Power Query • Python • Databricks • Power BI • JMP"],
-              ].map(([label, value]) => (
-                <div key={label} className="rounded-2xl border border-slate-200 bg-slate-50 p-4">
-                  <p className="text-xs font-bold uppercase tracking-wide text-slate-500">{label}</p>
-                  <p className="mt-1 text-sm font-medium leading-relaxed text-slate-800">{value}</p>
-                </div>
-              ))}
-            </div>
+            <Link
+              href="/projects"
+              className="text-sm font-bold text-orange-800 underline underline-offset-4"
+            >
+              All case studies ↗
+            </Link>
           </div>
+          <EvidenceShelf projects={selected} />
         </section>
-
+        <ArtefactStrip />
+        <LabPreview />
         <CompanyLogoStrip />
-
-        <section className="py-10">
-          <div className="flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">Featured work</p>
-              <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">Reliability case studies</h2>
-            </div>
-            <Link href="/projects" className="text-sm font-bold text-slate-800 underline underline-offset-4">View all case studies →</Link>
+        <section
+          className="grid gap-10 border-y border-slate-300 py-12 sm:py-16 lg:grid-cols-[.8fr_1.2fr]"
+          aria-labelledby="approach-title"
+        >
+          <div>
+            <p className="journal-label">03 / How I work</p>
+            <h2
+              id="approach-title"
+              className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl"
+            >
+              Start with the machine.
+              <br />
+              Keep the reasoning visible.
+            </h2>
+            <p className="mt-5 text-base leading-relaxed text-slate-600">
+              I enjoy the point where a drawing, a maintenance record or a
+              sensor signal has to stand up to what the equipment actually does.
+            </p>
+            <Link
+              href="/projects#engineering-thinking"
+              className="mt-5 inline-block text-sm font-bold text-orange-800 underline underline-offset-4"
+            >
+              Drawings, choices, prototypes and tests ↗
+            </Link>
           </div>
-
-          <div className="mt-6 grid gap-5 lg:grid-cols-3">
-            {featured.map((item) => (
-              <Link key={item.href} href={item.href} className="group rounded-3xl border border-slate-200 bg-white p-6 shadow-sm transition hover:-translate-y-1 hover:shadow-md">
-                <p className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">Case study</p>
-                <h3 className="mt-3 text-xl font-bold text-slate-950 group-hover:underline group-hover:underline-offset-4">{item.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-700">{item.body}</p>
-                <p className="mt-5 text-sm font-bold text-slate-800">Explore →</p>
-              </Link>
+          <ol className="divide-y divide-slate-300 border-y border-slate-300">
+            {[
+              [
+                "Understand the operating problem",
+                "Check the equipment, the interfaces and the people who operate and maintain it.",
+              ],
+              [
+                "Compare the engineering options",
+                "Connect the calculation, design choice or control sequence to a physical constraint.",
+              ],
+              [
+                "Test what the evidence supports",
+                "Show the result, the individual contribution and the questions still open.",
+              ],
+            ].map(([title, body], index) => (
+              <li key={title} className="grid grid-cols-[2rem_1fr] gap-3 py-6">
+                <span className="font-mono text-xs text-orange-800">
+                  0{index + 1}
+                </span>
+                <div>
+                  <h3 className="font-bold text-slate-950">{title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                    {body}
+                  </p>
+                </div>
+              </li>
             ))}
-          </div>
+          </ol>
         </section>
-
-        <section id="experience" className="scroll-mt-24 py-10">
-          <div className="mb-6">
-            <p className="text-xs font-bold uppercase tracking-[0.22em] text-slate-500">Experience</p>
-            <h2 className="mt-2 text-3xl font-bold tracking-tight text-slate-950">Industrial engineering experience</h2>
+        <section
+          className="grid gap-8 py-12 sm:py-16 md:grid-cols-[22rem_1fr] md:items-center"
+          aria-labelledby="person-title"
+        >
+          <div className="grid max-w-[22rem] grid-cols-2 gap-3">
+            <Link
+              href="/experience"
+              className="relative aspect-[3/4] overflow-hidden rounded-lg"
+            >
+              <Image
+                src="/profile/amine-industrial-field.jpg"
+                alt="Amine wearing protective equipment at an industrial site"
+                fill
+                sizes="(max-width: 768px) 42vw, 170px"
+                className="object-cover object-[center_25%]"
+              />
+            </Link>
+            <Link
+              href="/lifesaving"
+              className="relative mt-5 aspect-[3/4] overflow-hidden rounded-lg"
+            >
+              <Image
+                src="/profile/amine-lifesaving.png"
+                alt="Amine with rescue equipment beside the water"
+                fill
+                sizes="(max-width: 768px) 42vw, 170px"
+                className="object-cover"
+              />
+            </Link>
           </div>
-          <ExperienceTimeline />
-        </section>
-
-        <section className="my-10 rounded-3xl bg-slate-950 p-8 text-white sm:p-10">
-          <div className="grid gap-8 lg:grid-cols-[1fr_auto] lg:items-center">
-            <div>
-              <p className="text-xs font-bold uppercase tracking-[0.22em] text-white/60">2027 opportunities</p>
-              <h2 className="mt-3 text-3xl font-bold tracking-tight">Mechanical, reliability, maintenance & asset-performance roles.</h2>
-              <p className="mt-3 max-w-3xl text-base leading-relaxed text-white/75">
-                Based in Canada and preparing for a long-term engineering career in the United Kingdom. Interested in graduate and early-career roles where mechanical fundamentals, reliability methods, maintenance data, and field problem solving come together.
-              </p>
+          <div>
+            <p className="journal-label">04 / The person behind the work</p>
+            <h2
+              id="person-title"
+              className="mt-3 text-3xl font-bold tracking-tight"
+            >
+              An industrial placement. A laboratory. A team to lead.
+            </h2>
+            <p className="mt-4 max-w-3xl leading-relaxed text-slate-600">
+              My experience spans Imperial Oil, Valero, Kruger, Rio Tinto and
+              Soucy, alongside hands-on university projects and years of aquatic
+              safety and lifeguard instruction. Each asks for clear
+              communication, practical judgement and responsibility for the next
+              step.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-x-6 gap-y-3 text-sm font-bold text-orange-800">
+              <Link href="/experience">Six industrial placements ↗</Link>
+              <Link href="/lifesaving">Leadership & lifesaving ↗</Link>
+              <Link href="/education">Education ↗</Link>
             </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href="/contact" className="rounded-full bg-white px-5 py-3 text-sm font-bold text-slate-950">Contact me</Link>
-              <a href="/resume.pdf" target="_blank" rel="noreferrer" className="rounded-full border border-white/30 px-5 py-3 text-sm font-bold text-white">Download CV</a>
-            </div>
           </div>
         </section>
-
-        <footer className="flex flex-col gap-2 border-t border-slate-200 py-8 text-sm text-slate-500 sm:flex-row sm:items-center sm:justify-between">
-          <p>© {new Date().getFullYear()} Amine Rhammi</p>
-          <div className="flex flex-wrap gap-4">
-            <a className="underline underline-offset-4" href="https://www.linkedin.com/in/amine-rhammi-392376b9/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a className="underline underline-offset-4" href="mailto:aminecana@hotmail.com">Email</a>
+        <section
+          className="mb-14 rounded-xl bg-[#14243a] p-7 text-white sm:p-10"
+          aria-labelledby="contact-title"
+        >
+          <p className="font-mono text-xs uppercase tracking-[.14em] text-orange-200">
+            Expected graduation / April 2027
+          </p>
+          <h2
+            id="contact-title"
+            className="mt-4 max-w-3xl text-3xl font-bold tracking-tight sm:text-4xl"
+          >
+            Let’s talk about the engineering your team needs.
+          </h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-slate-300">
+            Seeking graduate and early-career opportunities in the UK. Preparing
+            to relocate in 2027; eligible to apply for the Youth Mobility
+            Scheme.
+          </p>
+          <div className="mt-6 flex flex-wrap gap-3">
+            <a
+              href="mailto:aminecana@hotmail.com"
+              className="journal-button journal-button-accent"
+            >
+              Email Amine ↗
+            </a>
+            <Link
+              href="/about#contact"
+              className="journal-button border border-white/40 hover:bg-white/10"
+            >
+              Contact details
+            </Link>
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noreferrer"
+              className="journal-button border border-white/40 hover:bg-white/10"
+            >
+              View CV
+            </a>
           </div>
-        </footer>
+        </section>
       </div>
+      <Footer />
     </main>
   );
 }
