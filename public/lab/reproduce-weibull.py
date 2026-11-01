@@ -53,7 +53,7 @@ def fit_weibull(rows):
 def survival(t, beta, eta):
     return math.exp(-(max(t, 0) / eta) ** beta)
 
-def cycle_hours(age, beta, eta, n=400):
+def cycle_hours(age, beta, eta, n=800):
     # Simpson quadrature: E[min(X,T)] = integral from 0 to T of S(t) dt.
     h = age / n
     total = survival(0, beta, eta) + survival(age, beta, eta)
@@ -80,7 +80,7 @@ def main():
     print(f"Age replacement at {INTERVAL:.0f} h: GBP {proposed:.2f} / 1000 h")
     print(f"Run-to-failure: GBP {base:.2f} / 1000 h")
     print(f"Lowest tested age-policy cost: GBP {best[0]:.2f} / 1000 h at {best[1]} h")
-    print("Model omits uncertainty, downtime, safety consequences and imperfect repair.")
+    print("Point-estimate reproduction only. Browser adds paired-bootstrap bands and a Kaplan-Meier diagnostic. Both omit downtime, safety consequences and imperfect repair.")
 
 if __name__ == "__main__":
     main()
