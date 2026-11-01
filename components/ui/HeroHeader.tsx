@@ -65,7 +65,7 @@ export default function HeroHeader() {
         </div>
         <figure className="relative mx-auto w-full max-w-lg lg:max-w-none">
           <Link href="/experience" className="group relative block aspect-[5/3] overflow-hidden rounded-xl border border-white/20 sm:aspect-[2/1] lg:aspect-square">
-            <Image src="/profile/amine-industrial-field.jpg" alt="Amine in Imperial Oil protective equipment beside heavy industrial machinery" fill priority sizes="(max-width: 1024px) 90vw, 370px" className="object-cover object-[50%_33%] transition-transform duration-500 group-hover:scale-[1.025]" />
+            <Image src="/profile/amine-industrial-field.jpg" alt="Amine in Imperial Oil protective equipment beside heavy industrial machinery" fill priority sizes="(max-width: 1024px) 90vw, 370px" className="object-cover object-[50%_25%] transition-transform duration-500 group-hover:scale-[1.025]" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent px-5 pb-5 pt-16">
               <span className="font-mono text-[10px] uppercase tracking-widest text-orange-200">In the field / Imperial Oil</span>
               <p className="mt-2 text-lg font-bold">The machine comes first. <span aria-hidden="true">↗</span></p>
