@@ -6,7 +6,7 @@ import { projects } from "@/data/projects";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://aminer-rhammi.netlify.app";
-  const staticRoutes = ["", "/experience", "/projects", "/education", "/about", "/lifesaving"];
+  const staticRoutes = ["", "/experience", "/projects", "/education", "/about", "/lifesaving", "/for", "/lab/reliability", "/for/reliability", "/for/mechanical", "/for/mechatronics"];
   return [
     ...staticRoutes.map((route) => ({ url: `${base}${route}`, changeFrequency: "monthly" as const, priority: route === "" ? 1 : 0.8 })),
     ...experience.map((item) => ({ url: `${base}/experience/${item.slug}`, changeFrequency: "yearly" as const, priority: 0.65 })),

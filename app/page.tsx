@@ -23,6 +23,29 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <CompanyLogoStrip />
 
+        <section className="border-b border-slate-200 py-14 sm:py-20">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div className="max-w-4xl">
+              <p className="text-xs font-extrabold uppercase tracking-widest text-orange-700">For graduate recruiters & engineering managers</p>
+              <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Start with the engineering that matters to your team.</h2>
+              <p className="mt-3 leading-relaxed text-slate-600">Three short routes through my most relevant work, with traceable case studies rather than a generic list of skills.</p>
+            </div>
+            <Link href="/for" className="rounded-full border border-slate-300 px-5 py-3 text-sm font-extrabold text-slate-900 hover:border-orange-500">All hiring-team paths →</Link>
+          </div>
+          <div className="mt-7 grid gap-4 md:grid-cols-3">
+            {[
+              {href:"/for/reliability",title:"Reliability & maintenance",text:"Failure modes, life data, RCM and maintenance evidence"},
+              {href:"/for/mechanical",title:"Mechanical & plant engineering",text:"Pumps, modifications, mechanical design and site checks"},
+              {href:"/for/mechatronics",title:"Mechatronics & controls",text:"PLC sequencing, sensors, motor control and prototypes"}
+            ].map(item=><Link key={item.href} href={item.href} className="group rounded-2xl border border-slate-200 bg-white p-6 shadow-sm transition hover:border-orange-400 hover:shadow-lg"><h3 className="text-lg font-black text-slate-950 group-hover:text-orange-700">{item.title}</h3><p className="mt-2 text-sm leading-relaxed text-slate-600">{item.text}</p><p className="mt-5 text-sm font-bold text-orange-700">Open targeted portfolio →</p></Link>)}
+          </div>
+          <Link href="/lab/reliability" className="mt-5 flex flex-wrap items-center justify-between gap-3 rounded-2xl bg-slate-950 p-6 text-white hover:bg-slate-900">
+            <span><strong className="block text-lg">Reliability Evidence Lab</strong><span className="mt-1 block text-sm text-slate-300">Fit synthetic censored failure histories and challenge a maintenance strategy.</span></span>
+            <span className="text-sm font-black text-orange-400">Try the interactive model →</span>
+          </Link>
+        </section>
+
+
         <section className="py-16 sm:py-24">
           <div className="max-w-3xl">
             <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-orange-700">Three connected engineering pillars</p>
