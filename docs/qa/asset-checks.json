@@ -1,0 +1,207 @@
+[
+  {
+    "path": "/experience/kruger/mill.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/experience/rio-tinto/hero-ugs.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/experience/rio-tinto/plant.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/experience/soucy/shopfloor.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/experience/valero/terminal.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/logos/kruger.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/logos/rio-tinto.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/logos/soucy.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/logos/valero.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1049/electronics-prototype.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1049/motor-calibration-loop.svg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1049/tft-feedback.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1049/tracked-vehicle-architecture.svg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1049/tracked-vehicle-demonstration.mp4",
+    "status": 206,
+    "range": "bytes 0-1023/215666"
+  },
+  {
+    "path": "/projects/gei1049/tracked-vehicle-hero.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1049/tracked-vehicle-video-poster.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1087/festo-cell-hero.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1087/festo-demonstration.mp4",
+    "status": 206,
+    "range": "bytes 0-1023/1226778"
+  },
+  {
+    "path": "/projects/gei1087/festo-handshake.svg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1087/festo-video-poster.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1087/pick-place-grafcet.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/gei1087/press-grafcet.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/robotino/robotino-demonstration.mp4",
+    "status": 206,
+    "range": "bytes 0-1023/1606657"
+  },
+  {
+    "path": "/projects/robotino/robotino-discontinuity-search.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/robotino/robotino-rem-english.svg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/robotino/robotino-route-hero.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/robotino/robotino-sensor-logic.svg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/robotino/robotino-simulink.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/robotino/robotino-video-poster.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/winder/winder-architecture.svg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/winder/winder-controller-code.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/winder/winder-demonstration.mp4",
+    "status": 206,
+    "range": "bytes 0-1023/678430"
+  },
+  {
+    "path": "/projects/winder/winder-hero.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/winder/winder-interface.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/winder/winder-simulink-model.png",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/winder/winder-tension-loop.svg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/projects/winder/winder-video-poster.jpg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/visuals/reliability-loop.svg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/visuals/stress-analysis.svg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/visuals/terminal-modification.svg",
+    "status": 200,
+    "range": null
+  },
+  {
+    "path": "/visuals/wire-feed-capstone.svg",
+    "status": 200,
+    "range": null
+  }
+]
