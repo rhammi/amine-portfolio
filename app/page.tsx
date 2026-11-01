@@ -42,7 +42,7 @@ export default function Home() {
       <div className="mx-auto max-w-[1200px] px-5 sm:px-8">
         <section
           id="featured-evidence"
-          className="scroll-mt-24 py-12 sm:py-16"
+          className="scroll-mt-24 py-10 sm:py-12"
           aria-labelledby="featured-title"
         >
           <div className="flex flex-wrap items-end justify-between gap-5">
