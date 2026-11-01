@@ -203,6 +203,7 @@ export default function ReliabilityLab() {
       </ul>
       <div className="mt-8 flex flex-wrap gap-3">
         <a href="/lab/synthetic-component-history.csv" download className="rounded-full bg-white px-5 py-3 text-sm font-extrabold text-slate-950 hover:bg-slate-100">Download synthetic evidence</a>
+        <a href="/lab/reproduce-weibull.py" download className="rounded-full border border-white/35 px-5 py-3 text-sm font-bold text-white hover:bg-white/10">Download reproduction script</a>
         <Link href="/for/reliability" className="rounded-full border border-white/35 px-5 py-3 text-sm font-bold text-white hover:bg-white/10">Reliability role evidence</Link>
         <Link href="/about#contact" className="rounded-full border border-white/35 px-5 py-3 text-sm font-bold text-white hover:bg-white/10">Challenge the approach with me</Link>
       </div>
