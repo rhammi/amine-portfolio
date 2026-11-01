@@ -7,6 +7,7 @@ import Footer from "@/components/ui/Footer";
 import Navbar from "@/components/ui/Navbar";
 import { disciplineLabels, projects } from "@/data/projects";
 import ProjectInsights from "@/components/ui/ProjectInsights";
+import VisualCredit from "@/components/ui/VisualCredit";
 
 type PageProps = { params: Promise<{ slug: string }> };
 
@@ -97,7 +98,8 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                 fill
                 priority
                 sizes="(max-width: 1024px) 100vw, 45vw"
-                className="object-cover"
+                style={{ objectPosition: project.visualPosition }}
+                className={project.visual.endsWith(".svg") ? "object-contain p-4" : "object-cover"}
               />
               {project.video ? (
                 <a
@@ -113,6 +115,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             </div>
             <figcaption className="border-t border-slate-200 px-4 py-3 text-xs leading-relaxed text-slate-600">
               {project.visualCaption}
+              {project.visualCredit ? <span className="mt-2 block"><VisualCredit project={project} /></span> : null}
             </figcaption>
           </figure>
         </div>
@@ -157,6 +160,27 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             ) : null}
           </section>
           <ProjectInsights slug={project.slug} />
+          {project.gallery?.length ? (
+            <section aria-labelledby="visual-evidence-title">
+              <p className="journal-label">See the engineering</p>
+              <h2 id="visual-evidence-title" className="mt-3 text-2xl font-bold">A closer look at the evidence.</h2>
+              <div className="mt-6 grid gap-6 sm:grid-cols-2">
+                {[...project.gallery].sort((a, b) => Number(a.src.endsWith(".svg")) - Number(b.src.endsWith(".svg"))).slice(0, 2).map((item) => (
+                  <figure key={item.src} className="min-w-0 overflow-hidden rounded-xl border border-slate-200 bg-white">
+                    <a href={item.src} target="_blank" rel="noreferrer" aria-label={`Inspect full-size figure: ${item.title}`} className="relative block aspect-[4/3] border-b border-slate-200">
+                      <Image src={item.src} alt={item.alt} fill sizes="(max-width: 640px) 90vw, 400px" className={item.fit === "cover" ? "object-cover object-[center_65%]" : "object-contain p-4"} />
+                      <span aria-hidden="true" className="absolute bottom-3 right-3 rounded bg-slate-950 px-2 py-1 text-xs text-white">Inspect ↗</span>
+                    </a>
+                    <figcaption className="p-5">
+                      <p className="journal-label">{item.eyebrow}</p>
+                      <h3 className="mt-2 font-bold">{item.title}</h3>
+                      <p className="mt-3 text-xs leading-relaxed text-slate-600">{item.caption}</p>
+                    </figcaption>
+                  </figure>
+                ))}
+              </div>
+            </section>
+          ) : null}
           <details
             id="technical-investigation"
             className="group rounded-xl border border-slate-300 bg-white p-5 sm:p-8"

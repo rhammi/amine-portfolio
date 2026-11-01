@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
@@ -10,6 +11,8 @@ import {
   type RecruiterPath,
 } from "@/data/recruiter-paths";
 import { projects } from "@/data/projects";
+import { pathwayVisuals } from "@/data/pathway-visuals";
+import VisualCredit from "@/components/ui/VisualCredit";
 
 type Props = { params: Promise<{ slug: string }> };
 export function generateStaticParams() {
@@ -30,6 +33,7 @@ export default async function RecruiterRolePage({ params }: Props) {
   const { slug } = await params;
   const path = recruiterPathBySlug[slug as RecruiterPath["slug"]];
   if (!path) notFound();
+  const visual = pathwayVisuals[path.slug];
   const items = path.projectSlugs
     .map((id) => projects.find((x) => x.slug === id))
     .filter((x): x is NonNullable<typeof x> => Boolean(x));
@@ -37,7 +41,8 @@ export default async function RecruiterRolePage({ params }: Props) {
     <main id="main-content" className="min-h-screen">
       <Navbar />
       <header className="bg-slate-950 text-white">
-        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 sm:py-20">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-5 py-12 sm:px-8 sm:py-16 lg:grid-cols-[1.15fr_.85fr]">
+          <div>
           <Link
             href="/for"
             className="text-sm font-bold text-slate-300 hover:text-white"
@@ -57,6 +62,17 @@ export default async function RecruiterRolePage({ params }: Props) {
             Amine Rhammi · BEng Mechanical Engineering (Mechatronics) · Expected
             April 2027
           </p>
+          </div>
+          <figure className="overflow-hidden rounded-xl border border-white/20 bg-[#14243a]">
+            <Link href={visual.href} className={`relative block aspect-[4/3] ${visual.diagram ? "bg-white" : ""}`} aria-label={visual.caption}>
+              <Image src={visual.src} alt={visual.alt} fill priority sizes="(max-width: 1024px) 90vw, 520px" className={visual.diagram ? "object-contain p-4" : "object-cover"} />
+              <span aria-hidden="true" className="absolute bottom-4 right-4 rounded-full bg-slate-950 px-3 py-2 text-sm font-bold text-white">Read case study ↗</span>
+            </Link>
+            <figcaption className="px-5 py-4 text-xs leading-relaxed text-slate-200">
+              {visual.caption}
+              {path.slug !== "mechatronics" ? <span className="mt-2 block text-[11px] text-slate-300"><VisualCredit project={projects.find((project) => project.slug === (path.slug === "reliability" ? "dozer-fleet-rcm" : "terminal-brownfield-modifications"))!} /></span> : null}
+            </figcaption>
+          </figure>
         </div>
       </header>
       <div className="mx-auto max-w-7xl px-5 py-14 sm:px-8 sm:py-20">

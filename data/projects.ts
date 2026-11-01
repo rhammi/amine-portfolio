@@ -23,6 +23,14 @@ export type Project = {
   visual: string;
   visualAlt: string;
   visualCaption: string;
+  visualPosition?: string;
+  visualCredit?: {
+    author: string;
+    source: string;
+    license: string;
+    licenseUrl: string;
+    context: string;
+  };
   highlights?: { label: string; value: string }[];
   gallery?: {
     src: string;
@@ -86,9 +94,16 @@ export const projects: Project[] = [
     learning: "Fleet-level averages can conceal the engineering question. Segmenting by system, time and unit revealed where field validation and maintenance-strategy work should begin.",
     skills: ["RCM", "Failure modes", "SAP PM", "Bad-actor analysis", "Heavy equipment", "Cost concentration"],
     confidentiality: "This public summary uses aggregated, CV-verified results. Internal equipment identifiers, work orders and maintenance records are omitted.",
-    visual: "/visuals/reliability-loop.svg",
-    visualAlt: "Simplified reliability workflow from maintenance evidence through classification, analysis and intervention review",
-    visualCaption: "Simplified public-safe workflow — not internal project documentation.",
+    visual: "/images/cat-d11-david-drew.jpg",
+    visualAlt: "Caterpillar D11 dozer with its blade, track shoes and elevated drive sprocket visible",
+    visualCaption: "D11 equipment context; this is not a photograph of the studied fleet. Image displayed with a responsive crop.",
+    visualCredit: {
+      author: "David Drew",
+      source: "https://commons.wikimedia.org/wiki/File:Cat_D11_View_2.jpg",
+      license: "CC BY-SA 3.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+      context: "Responsive crop; not the studied fleet.",
+    },
     featured: true,
   },
   {
@@ -193,9 +208,16 @@ export const projects: Project[] = [
     learning: "Brownfield design quality depends as much on interface control and verification as on the mechanical concept itself.",
     skills: ["Brownfield design", "P&IDs", "MOC", "Commissioning", "Pumps", "Contractor coordination"],
     confidentiality: "The diagram and narrative are sanitised. Asset tags, dimensions, operating limits, drawings and private site photographs are excluded.",
-    visual: "/visuals/terminal-modification.svg",
-    visualAlt: "Sanitised diagram of two drainage routes, isolation and controlled air admission at a storage tank",
-    visualCaption: "Sanitised illustration — not a site P&ID or construction drawing.",
+    visual: "/images/refinery-tanks-carl-young.jpg",
+    visualAlt: "Industrial storage tanks and connecting pipework, shown as equipment context",
+    visualCaption: "Storage tanks and pipes at a refinery. Context photograph; not the Valero site or a record of this modification.",
+    visualCredit: {
+      author: "Carl Young",
+      source: "https://commons.wikimedia.org/wiki/File:Refinery_Tanks_2.jpg",
+      license: "CC BY-SA 4.0",
+      licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+      context: "Resized and responsively cropped; not the Valero site.",
+    },
     featured: true,
   },
   {
@@ -619,6 +641,7 @@ export const projects: Project[] = [
     skills: ["STM32L432KC", "ESP32-S3", "Embedded C", "FreeRTOS", "PWM", "I2C", "Hall encoders", "L298N", "BLE control", "Motor calibration"],
     confidentiality: "This is four-person academic work. The page identifies only the stage assigned to me, keeps the remaining functions at team level, omits all teammate names and makes no claim about grade or calibrated trajectory accuracy.",
     visual: "/projects/gei1049/tracked-vehicle-hero.jpg",
+    visualPosition: "50% 75%",
     visualAlt: "Physical tracked vehicle operating inside a marked university laboratory test area",
     visualCaption: "Frame from the team’s supplied GEI1049 final-result recording.",
     highlights: [

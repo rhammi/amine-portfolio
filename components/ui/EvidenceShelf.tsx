@@ -2,6 +2,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
+import VisualCredit from "@/components/ui/VisualCredit";
 import type { DisciplineSlug, Project } from "@/data/projects";
 export type EvidenceCard = Pick<
   Project,
@@ -14,6 +15,9 @@ export type EvidenceCard = Pick<
   | "summary"
   | "visual"
   | "visualAlt"
+  | "visualPosition"
+  | "visualCredit"
+  | "visualCaption"
 > & { hasVideo: boolean };
 const filters: { value: "all" | DisciplineSlug; label: string }[] = [
   { value: "all", label: "Selected work" },
@@ -57,7 +61,7 @@ export default function EvidenceShelf({
           <article key={project.slug} className="group min-w-0">
             <Link
               href={`/projects/${project.slug}`}
-              className="relative block aspect-[16/10] overflow-hidden rounded-xl border border-slate-200 bg-white"
+              className="relative block aspect-[16/10] overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm"
               aria-label={`Read ${project.title}`}
             >
               <Image
@@ -65,6 +69,7 @@ export default function EvidenceShelf({
                 alt={project.visualAlt}
                 fill
                 sizes="(max-width: 768px) 100vw, 560px"
+                style={{ objectPosition: project.visualPosition }}
                 className={`${project.visual.endsWith(".svg") ? "object-contain p-4" : "object-cover"} transition-transform duration-300 group-hover:scale-[1.025]`}
               />
               <span className="absolute left-3 top-3 rounded bg-[#14243a]/95 px-3 py-2 font-mono text-[10px] uppercase tracking-wider text-white">
@@ -73,11 +78,9 @@ export default function EvidenceShelf({
                   : "Engineering case study"}
               </span>
             </Link>
-            <p className="mt-3 font-mono text-[10px] uppercase tracking-[.08em] text-slate-500">
-              Figure {String(index + 1).padStart(2, "0")} /{" "}
-              {project.visual.endsWith(".svg")
-                ? "Public-safe illustration"
-                : "Original laboratory evidence"}
+            <p className="mt-3 text-[11px] leading-relaxed text-slate-500">
+              <span className="font-mono">FIG. {String(index + 1).padStart(2, "0")} / </span>
+              <VisualCredit project={project} />
             </p>
             <p className="mt-4 text-[11px] font-bold uppercase tracking-wider text-orange-800">
               {project.organisation} · {project.period}

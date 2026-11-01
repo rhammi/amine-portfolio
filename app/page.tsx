@@ -8,6 +8,7 @@ import Footer from "@/components/ui/Footer";
 import HeroHeader from "@/components/ui/HeroHeader";
 import LabPreview from "@/components/ui/LabPreview";
 import Navbar from "@/components/ui/Navbar";
+import ArtefactStrip from "@/components/ui/ArtefactStrip";
 import { projects } from "@/data/projects";
 const featuredSlugs = [
   "dozer-fleet-rcm",
@@ -30,6 +31,9 @@ export default function Home() {
             summary: p.summary,
             visual: p.visual,
             visualAlt: p.visualAlt,
+            visualPosition: p.visualPosition,
+            visualCredit: p.visualCredit,
+            visualCaption: p.visualCaption,
             hasVideo: Boolean(p.video),
           },
         ]
@@ -66,6 +70,7 @@ export default function Home() {
           </div>
           <EvidenceShelf projects={selected} />
         </section>
+        <ArtefactStrip />
         <LabPreview />
         <CompanyLogoStrip />
         <section
@@ -123,10 +128,10 @@ export default function Home() {
           </ol>
         </section>
         <section
-          className="grid gap-8 py-12 sm:py-16 md:grid-cols-[14rem_1fr] md:items-center"
+          className="grid gap-8 py-12 sm:py-16 md:grid-cols-[22rem_1fr] md:items-center"
           aria-labelledby="person-title"
         >
-          <div className="grid max-w-[14rem] grid-cols-2 gap-3">
+          <div className="grid max-w-[22rem] grid-cols-2 gap-3">
             <Link
               href="/experience"
               className="relative aspect-[3/4] overflow-hidden rounded-lg"
@@ -135,7 +140,7 @@ export default function Home() {
                 src="/profile/amine-industrial-field.jpg"
                 alt="Amine wearing protective equipment at an industrial site"
                 fill
-                sizes="112px"
+                sizes="(max-width: 768px) 42vw, 170px"
                 className="object-cover object-[center_25%]"
               />
             </Link>
@@ -147,7 +152,7 @@ export default function Home() {
                 src="/profile/amine-lifesaving.png"
                 alt="Amine with rescue equipment beside the water"
                 fill
-                sizes="112px"
+                sizes="(max-width: 768px) 42vw, 170px"
                 className="object-cover"
               />
             </Link>
