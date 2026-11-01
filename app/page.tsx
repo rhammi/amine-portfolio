@@ -23,6 +23,22 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <CompanyLogoStrip />
 
+        <section className="pt-12 sm:pt-16" aria-labelledby="recruiter-paths-title">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-orange-700">For engineering recruiters</p>
+              <h2 id="recruiter-paths-title" className="mt-3 text-3xl font-black tracking-tight text-slate-950 sm:text-4xl">Looking for a particular kind of engineer?</h2>
+              <p className="mt-3 max-w-3xl text-sm leading-relaxed text-slate-700">Three routes through the evidence most relevant to your team.</p>
+            </div>
+            <Link href="/for" className="text-sm font-extrabold text-orange-700 underline underline-offset-4">Compare all three pathways →</Link>
+          </div>
+          <div className="mt-6 grid gap-3 sm:grid-cols-3">
+            <Link href="/for/reliability" className="rounded-2xl border border-slate-200 bg-white p-5 font-extrabold text-slate-950 transition hover:border-orange-500 hover:shadow-md">Reliability & asset performance <span aria-hidden="true" className="text-orange-700">↗</span></Link>
+            <Link href="/for/mechanical" className="rounded-2xl border border-slate-200 bg-white p-5 font-extrabold text-slate-950 transition hover:border-orange-500 hover:shadow-md">Mechanical & field engineering <span aria-hidden="true" className="text-orange-700">↗</span></Link>
+            <Link href="/for/mechatronics" className="rounded-2xl border border-slate-200 bg-white p-5 font-extrabold text-slate-950 transition hover:border-orange-500 hover:shadow-md">Mechatronics & controls <span aria-hidden="true" className="text-orange-700">↗</span></Link>
+          </div>
+        </section>
+
         <section className="py-16 sm:py-24">
           <div className="max-w-3xl">
             <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-orange-700">Three connected engineering pillars</p>
@@ -56,6 +72,17 @@ export default function Home() {
           </div>
           <div className="mt-10 grid gap-6 md:grid-cols-2">
             {featuredProjects.map((project) => <ProjectCard key={project.slug} project={project} />)}
+          </div>
+        </section>
+
+        <section className="pb-10 sm:pb-16" aria-labelledby="reliability-lab-title">
+          <div className="grid gap-7 rounded-[2rem] border border-orange-200 bg-orange-50 p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
+            <div>
+              <p className="text-xs font-extrabold uppercase tracking-[0.18em] text-orange-700">Interactive engineering investigation</p>
+              <h2 id="reliability-lab-title" className="mt-3 text-3xl font-black text-slate-950">Reliability Evidence Lab</h2>
+              <p className="mt-4 max-w-3xl text-sm leading-relaxed text-slate-700">Change Weibull behaviour, maintenance costs and replacement intervals. Inspect synthetic censored records, question the recommendation and see the equations. No confidential employer data.</p>
+            </div>
+            <Link href="/lab/reliability" className="inline-flex rounded-full bg-orange-700 px-5 py-3 text-sm font-extrabold text-white hover:bg-orange-800">Open the lab →</Link>
           </div>
         </section>
 
