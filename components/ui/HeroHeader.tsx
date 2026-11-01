@@ -28,13 +28,13 @@ const pathways = [
 export default function HeroHeader() {
   return (
     <header className="journal-hero text-white">
-      <div className="mx-auto max-w-[1200px] px-5 pb-7 pt-8 sm:px-8 sm:pt-12">
-        <div className="grid items-center gap-8 pb-8 sm:pb-10 lg:grid-cols-[1.35fr_.75fr] lg:gap-14">
+      <div className="mx-auto max-w-[1200px] px-5 pb-7 pt-8 sm:px-8">
+        <div className="grid items-center gap-8 pb-8 lg:grid-cols-[1.35fr_.75fr] lg:gap-10">
         <div>
           <p className="text-xs font-bold uppercase tracking-[.18em] text-orange-300">
             Mechanical · Reliability · Mechatronics
           </p>
-          <h1 className="mt-5 text-[clamp(2.1rem,4.5vw,3.6rem)] font-bold leading-[1.06] tracking-[-.045em]">
+          <h1 className="mt-5 text-[clamp(2.1rem,4vw,3rem)] font-bold leading-[1.06] tracking-[-.045em]">
             Understanding machines.
             <br />
             <span className="text-orange-200">
@@ -64,7 +64,7 @@ export default function HeroHeader() {
           </div>
         </div>
         <figure className="relative mx-auto w-full max-w-lg lg:max-w-none">
-          <Link href="/experience" className="group relative block aspect-[5/3] overflow-hidden rounded-xl border border-white/20 sm:aspect-[2/1] lg:aspect-[4/5]">
+          <Link href="/experience" className="group relative block aspect-[5/3] overflow-hidden rounded-xl border border-white/20 sm:aspect-[2/1] lg:aspect-square">
             <Image src="/profile/amine-industrial-field.jpg" alt="Amine in Imperial Oil protective equipment beside heavy industrial machinery" fill priority sizes="(max-width: 1024px) 90vw, 370px" className="object-cover object-[50%_33%] transition-transform duration-500 group-hover:scale-[1.025]" />
             <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/95 via-slate-950/60 to-transparent px-5 pb-5 pt-16">
               <span className="font-mono text-[10px] uppercase tracking-widest text-orange-200">In the field / Imperial Oil</span>
