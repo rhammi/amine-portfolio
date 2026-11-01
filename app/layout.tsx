@@ -1,42 +1,55 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] });
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] });
-
 export const metadata: Metadata = {
+  metadataBase: new URL("https://aminer-rhammi.netlify.app"),
   title: {
-    default: "Amine Rhammi | Mechanical Reliability Engineer",
+    default: "Amine Rhammi | Mechanical Engineering Portfolio",
     template: "%s | Amine Rhammi",
   },
   description:
-    "Mechanical Engineering (Mechatronics) candidate with industrial experience in reliability, maintenance engineering, SAP PM, Weibull life-data analysis, heavy equipment, CBM, and engineering analytics.",
+    "Mechanical engineering graduate candidate working across reliability, asset integrity, mechanical design, mechatronics and industrial automation.",
   keywords: [
-    "mechanical reliability engineer",
-    "maintenance engineer",
+    "mechanical engineer",
     "reliability engineering",
-    "SAP PM",
-    "Weibull analysis",
-    "asset performance",
-    "heavy equipment reliability",
+    "asset integrity",
+    "mechatronics",
+    "industrial automation",
+    "mechanical design",
     "mechanical engineering portfolio",
   ],
   authors: [{ name: "Amine Rhammi" }],
   creator: "Amine Rhammi",
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Amine Rhammi | Mechanical Reliability Engineer",
-    description: "Reliability, maintenance engineering, heavy equipment, SAP PM, life-data analysis, and mechanical engineering case studies.",
+    title: "Amine Rhammi | Mechanical Engineering Portfolio",
+    description: "Evidence-led work across reliability, mechanical systems and mechatronics.",
     type: "website",
+    url: "/",
+    images: [{ url: "/og-card.png", width: 1200, height: 630, alt: "Amine Rhammi mechanical engineering portfolio" }],
   },
+  twitter: { card: "summary_large_image", images: ["/og-card.png"] },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: "Amine Rhammi",
+    url: "https://aminer-rhammi.netlify.app",
+    image: "https://aminer-rhammi.netlify.app/logos/moi.png",
+    jobTitle: "Mechanical Engineering Graduate Candidate",
+    alumniOf: { "@type": "CollegeOrUniversity", name: "Université du Québec à Trois-Rivières" },
+    sameAs: ["https://www.linkedin.com/in/amine-rhammi-392376b9/"],
+    knowsAbout: ["Mechanical engineering", "Reliability engineering", "Asset integrity", "Mechatronics", "Industrial automation"],
+  };
+
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900`}>
+      <body>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData).replace(/</g, "\\u003c") }} />
         {children}
       </body>
     </html>

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <g opacity=".09" stroke="#fff"><path d="M0 90H1200M0 180H1200M0 270H1200M0 360H1200M0 450H1200M0 540H1200"/><path d="M90 0V630M180 0V630M270 0V630M360 0V630M450 0V630M540 0V630M630 0V630M720 0V630M810 0V630M900 0V630M990 0V630M1080 0V630"/></g>
+  <circle cx="1060" cy="80" r="260" fill="none" stroke="#f97316" stroke-width="80" opacity=".28"/>
+  <text x="80" y="110" fill="#fb923c" font-family="Arial" font-size="24" font-weight="700" letter-spacing="4">ENGINEERING PORTFOLIO</text>
+  <text x="80" y="242" fill="#fff" font-family="Arial" font-size="76" font-weight="900">Amine Rhammi</text>
+  <text x="80" y="326" fill="#e2e8f0" font-family="Arial" font-size="35" font-weight="700">Mechanical Engineering Graduate Candidate</text>
+  <text x="80" y="390" fill="#94a3b8" font-family="Arial" font-size="27">Reliability · Mechanical Systems · Mechatronics</text>
+  <rect x="80" y="486" width="1040" height="3" fill="#334155"/>
+  <text x="80" y="548" fill="#cbd5e1" font-family="Arial" font-size="23">Evidence-led project case studies · Expected April 2027</text>
+</svg>

@@ -1,18 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
 
 const base = "/lifesaving%20pics";
 const heroImage = `${base}/background-lifeguard.jpg`;
 
-const certifications = [
-  "Swim Instructor",
-  "National Lifeguard Instructor",
-  "Lifesaving Instructor",
-  "First Aid - General",
-  "National Lifeguard - Pool",
-  "National Lifeguard - Ocean (expired)",
-  "National Lifeguard - Waterfront (expired)",
-];
+export const metadata: Metadata = {
+  title: "Aquatic Leadership & Safety",
+  description: "Aquatic supervision, lifesaving instruction and safety leadership experience alongside engineering.",
+  alternates: { canonical: "/lifesaving" },
+};
 
 const currentRole = {
   title: "Aquatic Coordinator",
@@ -80,14 +79,11 @@ const gallery = [
 
 export default function LifesavingPage() {
   return (
-    <main className="min-h-screen bg-slate-50">
+    <main id="main-content" className="min-h-screen bg-slate-50">
       <Navbar />
 
       <section className="relative h-[360px] overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: `url(${heroImage})` }}
-        />
+        <Image src={heroImage} alt="" fill priority sizes="100vw" className="object-cover object-center" />
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/40 to-slate-900/50" />
         <div className="relative z-10 mx-auto flex h-full max-w-5xl items-center px-6">
           <div className="max-w-3xl text-white">
@@ -122,9 +118,11 @@ export default function LifesavingPage() {
                   <p className="text-sm font-medium text-slate-800">{currentRole.org}</p>
                   <p className="text-sm text-slate-700">{currentRole.jobId}</p>
                 </div>
-                <img
+                <Image
                   src={currentRole.logo}
                   alt="City of Montreal"
+                  width={160}
+                  height={112}
                   className="h-28 w-auto rounded-md bg-white object-contain p-2"
                 />
               </div>
@@ -161,8 +159,8 @@ export default function LifesavingPage() {
               <h3 className="text-xl font-semibold text-slate-900">Lifesaving Moments</h3>
               <div className="mt-4 grid gap-4 sm:grid-cols-2">
                 {gallery.map((src) => (
-                  <div key={src} className="overflow-hidden rounded-2xl border border-slate-200">
-                    <img src={src} alt="Lifesaving" className="h-56 w-full object-cover" />
+                  <div key={src} className="relative h-56 overflow-hidden rounded-2xl border border-slate-200">
+                    <Image src={src} alt="Aquatic leadership and lifesaving experience" fill sizes="(max-width: 640px) 100vw, 50vw" className="object-cover" />
                   </div>
                 ))}
               </div>
@@ -173,9 +171,11 @@ export default function LifesavingPage() {
           <aside className="xl:col-span-4">
             <div className="xl:sticky top-24 space-y-4">
               <div className="overflow-hidden rounded-3xl border bg-white shadow-sm">
-                <img
+                <Image
                   src={`${base}/hero-lifeguard.jpg`}
                   alt="Amine on duty as a lifeguard on the beach"
+                  width={800}
+                  height={1000}
                   className="h-auto w-full object-cover"
                 />
               </div>
@@ -197,11 +197,12 @@ export default function LifesavingPage() {
                       key={badge.src}
                       className="flex items-center justify-center rounded-2xl border border-slate-200 bg-slate-50/70 p-2"
                     >
-                      <img
+                      <Image
                         src={badge.src}
                         alt={badge.alt}
+                        width={400}
+                        height={400}
                         className="h-80 w-auto object-contain"
-                        loading="lazy"
                       />
                     </div>
                   ))}
@@ -211,6 +212,7 @@ export default function LifesavingPage() {
           </aside>
         </div>
       </div>
+      <Footer />
     </main>
   );
 }
