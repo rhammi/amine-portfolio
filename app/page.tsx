@@ -5,7 +5,7 @@ import Footer from "@/components/ui/Footer";
 import HeroHeader from "@/components/ui/HeroHeader";
 import Navbar from "@/components/ui/Navbar";
 import ProjectCard from "@/components/ui/ProjectCard";
-import { disciplines } from "@/data/disciplines";
+import RoleEntryPoints from "@/components/ui/RoleEntryPoints";
 import { featuredProjects } from "@/data/projects";
 
 const principles = [
@@ -23,28 +23,7 @@ export default function Home() {
       <div className="mx-auto max-w-7xl px-5 sm:px-8">
         <CompanyLogoStrip />
 
-        <section className="py-16 sm:py-24">
-          <div className="max-w-3xl">
-            <p className="text-sm font-extrabold uppercase tracking-[0.18em] text-orange-700">Three connected engineering pillars</p>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.035em] text-slate-950 sm:text-5xl">From physical assets to control logic.</h2>
-            <p className="mt-5 text-lg leading-relaxed text-slate-700">My strongest work sits where disciplines meet: a mechanical system has to be understood, its evidence has to be trustworthy and its behaviour has to be controlled or maintained deliberately.</p>
-          </div>
-
-          <div className="mt-10 grid gap-5 lg:grid-cols-3">
-            {disciplines.map((discipline, index) => (
-              <Link key={discipline.slug} href={`/disciplines/${discipline.slug}`} className="group relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-7 shadow-sm transition hover:-translate-y-1 hover:shadow-xl">
-                <span aria-hidden="true" className="absolute right-5 top-3 text-7xl font-black text-slate-100">0{index + 1}</span>
-                <p className="relative text-xs font-extrabold uppercase tracking-[0.18em] text-orange-700">{discipline.eyebrow}</p>
-                <h3 className="relative mt-7 text-2xl font-black tracking-tight text-slate-950 group-hover:text-orange-700">{discipline.title}</h3>
-                <p className="relative mt-4 text-sm leading-relaxed text-slate-700">{discipline.proposition}</p>
-                <ul className="relative mt-6 space-y-2 border-t border-slate-200 pt-5 text-sm text-slate-600">
-                  {discipline.methods.slice(0, 3).map((method) => <li key={method} className="flex gap-2"><span className="text-orange-500" aria-hidden="true">/</span>{method}</li>)}
-                </ul>
-                <p className="relative mt-6 text-sm font-extrabold text-slate-950">Explore evidence <span aria-hidden="true">→</span></p>
-              </Link>
-            ))}
-          </div>
-        </section>
+        <RoleEntryPoints />
 
         <section className="border-y border-slate-200 py-16 sm:py-24">
           <div className="flex flex-wrap items-end justify-between gap-5">
