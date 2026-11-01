@@ -1,0 +1,13 @@
+sample_id,elapsed_hours,event_status,context
+SYN-001,1200,failed,synthetic_demo
+SYN-002,1800,right_censored,synthetic_demo
+SYN-003,2300,failed,synthetic_demo
+SYN-004,2600,right_censored,synthetic_demo
+SYN-005,3100,failed,synthetic_demo
+SYN-006,3500,right_censored,synthetic_demo
+SYN-007,4100,failed,synthetic_demo
+SYN-008,4700,right_censored,synthetic_demo
+SYN-009,5300,failed,synthetic_demo
+SYN-010,6100,right_censored,synthetic_demo
+SYN-011,7200,failed,synthetic_demo
+SYN-012,8200,right_censored,synthetic_demo
